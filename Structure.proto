@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/listvalue.proto";
+
 /*
  * Describes the Common Data Structure LBSN Concept
  */
@@ -8,7 +11,15 @@ syntax = "proto3";
   /*
    * The unique identifier of the object.
    */
-  required int32 origin_id = 1;
+  enum OriginID {
+        UNKNOWN = 0;
+        INSTAGRAM = 1;
+        FLICKR = 2;
+        TWITTER = 3;
+        FACEBOOK = 4;
+        FOURSQUARE = 5;
+   }
+  required OriginID origin_id = 1;
   /*
    * Optional Attributes
    */
@@ -46,31 +57,35 @@ message Post {
    Timestamp post_publish_date = 7;
    string post_body = 8;
    enum PostGeoaccuracy {
+        UNKNOWN = 0;
         LATLNG = 1;
         PLACE = 2;
         CITY = 3;
         COUNTRY = 4;
     }
-    ListValue hashtags = 9;
-    ListValue emojis = 10;
-    int64 post_like_count  = 11;
-    int64 post_comment_count  = 12;
-    int64 post_views_count  = 13;
-    string post_title = 14;
-    Timestamp post_create_date = 15;
-    string post_thumbnail_url = 16;
-    string post_url = 17;
+    PostGeoaccuracy post_geoaccuracy = 9;    
+    ListValue hashtags = 10;
+    ListValue emojis = 11;
+    int64 post_like_count  = 12;
+    int64 post_comment_count  = 13;
+    int64 post_views_count  = 14;
+    string post_title = 15;
+    Timestamp post_create_date = 16;
+    string post_thumbnail_url = 17;
+    string post_url = 18;
     enum PostType { //choose the more specific type (VIDEO over TEXT even if text is present)
+        UNKNOWN = 0;
         TEXT = 1;
         IMAGE = 2;
         VIDEO = 3;
         OTHER = 4;
     }
-    string post_filter = 18; //Any automatic filters applied to post? (e.g. Photo Filters such as Amarao; Automatic Translations of Text)
-    int64 post_quote_count = 19; //Number of times this Post has been quoted by other users, e.g. count of Quote-Tweets in Twitter.
-    int64 post_share_count = 20; //Number of times this Post has been shared by other users, e.g. count of Retweets in Twitter.
-    string input_source text = 21; //Type of input device used by the user to post, for a list see Twitter, e.g. "Web", "IPhone", "Android" etc., recommendation: should be oriented at Twitter source types.
-    Language post_language =22; //A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
+    PostType post_type = 19;
+    string post_filter = 20; //Any automatic filters applied to post? (e.g. Photo Filters such as Amarao; Automatic Translations of Text)
+    int64 post_quote_count = 21; //Number of times this Post has been quoted by other users, e.g. count of Quote-Tweets in Twitter.
+    int64 post_share_count = 22; //Number of times this Post has been shared by other users, e.g. count of Retweets in Twitter.
+    string input_source text = 23; //Type of input device used by the user to post, for a list see Twitter, e.g. "Web", "IPhone", "Android" etc., recommendation: should be oriented at Twitter source types.
+    Language post_language = 24; //A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
 }
 
 message User {
@@ -155,6 +170,7 @@ message PostReaction {
    CompositeKey user_pkey = 2;
    string reaction_latlng = 3; //WKT Point
    enum ReactionType { //choose the more specific type if multiple apply. Merge similar types: Retweet -> Share; Star -> Like
+       UNKNOWN = 0;
        SHARE = 1;
        COMMENT = 2;
        QUOTE = 3;
@@ -162,9 +178,10 @@ message PostReaction {
        EMOJI = 5;
        OTHER = 6;
    }
-   Timestamp reaction_date = 4;   
-   string reaction_content = 5;
-   int64 reaction_like_count = 6;   
+   ReactionType post_type = 4;  
+   Timestamp reaction_date = 5;   
+   string reaction_content = 6;
+   int64 reaction_like_count = 7;   
 }
 
 message Language {
