@@ -35,7 +35,7 @@ message AreaMapping {
    * A description of the admin levels is given here:
    * https://wiki.openstreetmap.org/wiki/Tag:boundary=administrative#10_admin_level_values_for_specific_countries
    */
-  optional int32 admin_level = 3;
+  int32 admin_level = 3;
 
   // debug
   string raw = 4;
