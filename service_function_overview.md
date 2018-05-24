@@ -1,15 +1,15 @@
 ### Symbols: Origin of individual Data aspects across services
 
-⚫ = Not Available  
-⍜ = User Contributed/ Input Device or Service Measure  
-⍉ = Service Generated/ From Service  
-⌽ = Analyst Algorithm Derived (Version Number)  
-    ⌽⥉ = Substituted from other internal data (e.g. other table, other column, higher granularity information substitution)  
-    ⌽⥈ = Substituted from other external data (e.g. other service, data source etc.)  
-    ⌽⨮ = Summarized  
-    ⌽⌽ = Empty Information Supplemented  
-    ⌽◑ = Value Mapping (see Proto Buffers enum lists)  
-⨷ = Analyst Defined  
+- ⚫ = Not Available  
+- ⍜ = User Contributed/ Input Device or Service Measure  
+- ⍉ = Service Generated/ From Service  
+- ⌽ = Analyst Algorithm Derived (Version Number)  
+    - ⌽⥉ = Substituted from other internal data (e.g. other table, other column, higher granularity information substitution)  
+    - ⌽⥈ = Substituted from other external data (e.g. other service, data source etc.)  
+    - ⌽⨮ = Summarized  
+    - ⌽⌽ = Empty Information Supplemented  
+    - ⌽◑ = Value Mapping (see Proto Buffers enum lists)  
+- ⨷ = Analyst Defined  
 
 () = Value  
 
