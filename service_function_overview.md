@@ -16,14 +16,14 @@
 ### Origin
 
 |    | INSTAGRAM   | FLICKR   | TWITTER   | FACEBOOK   | FOURSQUARE  |
-|---|---|---|---|---|---|
+|:-:|:-:|:-:|:-:|:-:|:-:|
 | origin_id  | (1) ⨷   | (2) ⨷   | (3) ⨷   | (4) ⨷   | (5) ⨷  |
 | name  | ⍉   | ⍉   | ⍉   | ⍉   | ⍉  |
 
 ### Post
 
 |    | INSTAGRAM   | FLICKR   | TWITTER   | FACEBOOK   | FOURSQUARE  |
-|---|---|---|---|---|---|
+|:-:|:-:|:-:|:-:|:-:|:-:|
 | post_latlng   | ⚫  | ⍜  | ⍜  | ⚫  | ⚫  |
 | place  | ⍜  | ⍉  | ⍉  | ⍜  | ⍜  |
 | city   |  ⍉ | ⚫  | ⍉  | ⍉  | ⍉  |
