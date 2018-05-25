@@ -17,7 +17,7 @@ import "external/timestamp.proto";
         FACEBOOK = 4;
         FOURSQUARE = 5;
    }
-  required OriginID origin_id = 1;
+  OriginID origin_id = 1;
   /*
    * Optional Attributes
    */
@@ -30,15 +30,15 @@ message CompositeKey {
    * is constructed from the internal id (origin, 1= Instagram, 2= Flickr, 3= Twitter etc.)
    * and the services own, unchanged (gu)id
    */
-    required Origin origin = 1;
-    required string id = 2;  
+    Origin origin = 1;
+    string id = 2;  
 }
 
 message Post {
   /*
    * Primary Key. The unique identifier of the object across networks.
    */
-  required CompositeKey post_pkey = 1;   
+  CompositeKey post_pkey = 1;   
   /*
    * Optional Attributes
    */
@@ -131,7 +131,7 @@ message City {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey city_pkey = 1;
+  CompositeKey city_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -146,7 +146,7 @@ message Country {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey country_pkey = 1;
+  CompositeKey country_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -160,7 +160,7 @@ message PostReaction {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey postreaction_pkey = 1;   
+  CompositeKey postreaction_pkey = 1;   
   /*
    * Optional Attributes
    */
