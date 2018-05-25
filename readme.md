@@ -1,4 +1,4 @@
-## Standardization of Cross-Network Data Structure and Interrelationships
+## Proto Buffers Standardization of Cross-Network Data Structure and Interrelationships
 
 This is the first version of a common conceptual data model for analyzing, comparing and relating information of different social networks. With the structure, we focus on three important directions that is of importance to the whole Priority Program:
 
