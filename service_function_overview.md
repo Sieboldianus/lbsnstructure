@@ -1,4 +1,4 @@
-### Symbols: Origin of individual Data aspects across services
+### Symbols: Availability and Origin of individual Data aspects across services
 
 ⚫ = Not Available  
 ⍜ = User Contributed/ Input Device or Service Measure  
