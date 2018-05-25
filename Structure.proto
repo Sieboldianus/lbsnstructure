@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/listvalue.proto";
-
+import "external/timestamp.proto";
 /*
  * Describes the Common Data Structure LBSN Concept
  */
@@ -19,7 +17,7 @@ import "google/protobuf/listvalue.proto";
         FACEBOOK = 4;
         FOURSQUARE = 5;
    }
-  required OriginID origin_id = 1;
+  OriginID origin_id = 1;
   /*
    * Optional Attributes
    */
@@ -32,15 +30,15 @@ message CompositeKey {
    * is constructed from the internal id (origin, 1= Instagram, 2= Flickr, 3= Twitter etc.)
    * and the services own, unchanged (gu)id
    */
-    required Origin origin = 1;
-    required string id = 2;  
+    Origin origin = 1;
+    string id = 2;  
 }
 
 message Post {
   /*
    * Primary Key. The unique identifier of the object across networks.
    */
-  required CompositeKey post_pkey = 1;   
+  CompositeKey post_pkey = 1;   
   /*
    * Optional Attributes
    */
@@ -54,7 +52,7 @@ message Post {
    CompositeKey city_pkey = 4;
    CompositeKey country_pkey = 5;
    CompositeKey user_pkey = 6;
-   Timestamp post_publish_date = 7;
+   google.protobuf.Timestamp post_publish_date = 7;
    string post_body = 8;
    enum PostGeoaccuracy {
         UNKNOWN = 0;
@@ -64,27 +62,26 @@ message Post {
         COUNTRY = 4;
     }
     PostGeoaccuracy post_geoaccuracy = 9;    
-    ListValue hashtags = 10;
-    ListValue emojis = 11;
+    repeated string hashtags = 10;
+    repeated string emojis = 11;
     int64 post_like_count  = 12;
     int64 post_comment_count  = 13;
     int64 post_views_count  = 14;
     string post_title = 15;
-    Timestamp post_create_date = 16;
+    google.protobuf.Timestamp post_create_date = 16;
     string post_thumbnail_url = 17;
     string post_url = 18;
     enum PostType { //choose the more specific type (VIDEO over TEXT even if text is present)
-        UNKNOWN = 0;
-        TEXT = 1;
-        IMAGE = 2;
-        VIDEO = 3;
-        OTHER = 4;
+        TEXT = 0;
+        IMAGE = 1;
+        VIDEO = 2;
+        OTHER = 3;
     }
     PostType post_type = 19;
     string post_filter = 20; //Any automatic filters applied to post? (e.g. Photo Filters such as Amarao; Automatic Translations of Text)
     int64 post_quote_count = 21; //Number of times this Post has been quoted by other users, e.g. count of Quote-Tweets in Twitter.
     int64 post_share_count = 22; //Number of times this Post has been shared by other users, e.g. count of Retweets in Twitter.
-    string input_source text = 23; //Type of input device used by the user to post, for a list see Twitter, e.g. "Web", "IPhone", "Android" etc., recommendation: should be oriented at Twitter source types.
+    string input_source = 23; //Type of input device used by the user to post, for a list see Twitter, e.g. "Web", "IPhone", "Android" etc., recommendation: should be oriented at Twitter source types.
     Language post_language = 24; //A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
 }
 
@@ -92,7 +89,7 @@ message User {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey user_pkey = 1;
+  CompositeKey user_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -109,7 +106,7 @@ message User {
    string user_location = 13; //The user-defined location for this profile. Not necessarily a location, nor machine-parseable.  
    string user_location_geom = 14; //(WKT: Point) Coordinates (lat/lng) of the user-location, either provided by user or geocoded from user_location_name.
    int64 liked_count = 15; //The number of Posts this user has liked in total.
-   Timestamp active_since = 16; //UTC datetime when the user was first active (e.g. time of account creation, or derived from first post_publish_date)
+   google.protobuf.Timestamp active_since = 16; //UTC datetime when the user was first active (e.g. time of account creation, or derived from first post_publish_date)
    string profile_image_url = 17; //URL pointing to the profile image of the user.
 
 }
@@ -118,7 +115,7 @@ message Place {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey place_pkey = 1;
+  CompositeKey place_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -134,7 +131,7 @@ message City {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey city_pkey = 1;
+  CompositeKey city_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -149,7 +146,7 @@ message Country {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey country_pkey = 1;
+  CompositeKey country_pkey = 1;
   /*
    * Optional Attributes
    */
@@ -163,7 +160,7 @@ message PostReaction {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
-  required CompositeKey postreaction_pkey = 1;   
+  CompositeKey postreaction_pkey = 1;   
   /*
    * Optional Attributes
    */
@@ -179,7 +176,7 @@ message PostReaction {
        OTHER = 6;
    }
    ReactionType post_type = 4;  
-   Timestamp reaction_date = 5;   
+   google.protobuf.Timestamp reaction_date = 5;   
    string reaction_content = 6;
    int64 reaction_like_count = 7;   
 }
@@ -189,7 +186,7 @@ message Language {
    * Primary Key. The unique identifier of the object in the database.
    * A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
    */
-  required string language_short = 1;
+  string language_short = 1;
   /*
    * Optional Attributes
    */

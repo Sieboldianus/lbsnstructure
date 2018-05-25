@@ -27,7 +27,7 @@ message AreaMapping {
    * The osm area that contains the given post location at the
    * administrative level defined in admin_level
    */
-  string guid = 2;
+  string matched_guid = 2;
 
   /*
    * The administrative level of the mapped osm area.
@@ -59,7 +59,7 @@ message ItemMapping {
   /*
    * A similar item. The similarity score is given in the <similarity> field
    */
-  string guid = 2;
+  string matched_guid = 2;
 
   /*
    * Indicator to the item similarity.
