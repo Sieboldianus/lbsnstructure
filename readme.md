@@ -1,6 +1,6 @@
 ## Proto Buffers Standardization of Social Media Data Structures and Cross-Network Interrelationships
 
-This is the first version of a common conceptual data model for analyzing, comparing and relating information of different social networks. With the structure, we focus on three important directions that is of importance to the whole Priority Program:
+This is the first version of a common, standardized conceptual data model for analyzing, comparing and relating information of different social networks. With the structure, we focus on three important directions that are of importance to the whole Priority Program:
 
 - Adaption: Case Studies for application of this structure and exemplary visualizations
 - Guides: Theoretic description and guidelines of concept and technical implementation
@@ -13,7 +13,7 @@ Here's one visualization from our Heidelberg Example dataset, which shows all ot
 
 Furthermore, we decided to describe our common structure with the platform and language independent [Proto Buffers](https://developers.google.com/protocol-buffers/). [These files](https://gitlab.vgiscience.de/lbsn/concept) can be used to compile and implement our proposed structure in any language such as Python, Java or C++.
 
-[Filip](https://gitlab.vgiscience.de/Filip) demonstrated how to implement a [Mapping Algorithms](https://gitlab.vgiscience.de/Filip/point_location) for relating two different sources for enriching information: OSM Polygons to Instagram and Facebook Places. Such algorithms are the key to relating information coming from different datasources, which helps us to get a better overall understanding of relationships.
+[Filip](https://gitlab.vgiscience.de/Filip) demonstrated how to implement a [Mapping Algorithms](https://gitlab.vgiscience.de/Filip/point_location) for relating two different sources for enriching information: OSM Polygons to Twitter, Instagram or Facebook Places. Such algorithms are the key to relating information coming from different datasources, which helps us to get a better overall understanding of relationships.
 
 Finally, [Nida](https://gitlab.vgiscience.de/nida.cilasun) provided a specific Case Study for applying our structure. As a result, her Topic Modeling visualizations originally developed on Twitter data could be directly applied and tested with other data, in this case to the Heidelberg example datasets from Flickr and Instagram. This gives analysts the ability to test and compare suitability of algorithms across different networks and datasets.
 
