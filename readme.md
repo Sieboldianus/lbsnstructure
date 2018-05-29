@@ -23,7 +23,7 @@ The background technical infrastructure was administered by [Marc](https://gitla
 
 To compile ProtoBuffers structure in your language, get the [current release for your OS](https://developers.google.com/protocol-buffers/docs/downloads), clone this repository (or download [Structure.proto](Structure.proto)) and execute:
 
-`protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.proto` 
+`protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/Structure.proto` 
 
 ...where `$SRC_DIR` is your Input directory and `$DST_DIR` is your output directory. 
 Replace `--python` with your language of choice. 
