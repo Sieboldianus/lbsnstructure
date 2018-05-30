@@ -5,7 +5,7 @@ import "lbsnstructure/external/timestamp.proto";
  * Describes the Common Data Structure LBSN Concept
  */
 
- message Origin {
+ message lbsnOrigin {
   /*
    * The unique identifier of the object.
    */
@@ -28,13 +28,13 @@ message CompositeKey {
   /*
    * Except for language, a Composite Key is used for all messages and
    * is constructed from the internal id (origin, 1= Instagram, 2= Flickr, 3= Twitter etc.)
-   * and the services own, unchanged (gu)id
+   * and the services own, hashed or encrypted (gu)id
    */
-    Origin origin = 1;
+    lbsnOrigin origin = 1;
     string id = 2;  
 }
 
-message Post {
+message lbsnPost {
   /*
    * Primary Key. The unique identifier of the object across networks.
    */
@@ -85,7 +85,7 @@ message Post {
     Language post_language = 24; //A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
 }
 
-message User {
+message lbsnUser {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
@@ -111,7 +111,7 @@ message User {
 
 }
 
-message Place {
+message lbsnPlace {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
@@ -124,10 +124,10 @@ message Place {
     string url = 4;   
     string geom_center = 5; //WKT Point
     string geom_area = 6; //WKT Polygon
-    City city_pkey = 7;
+    lbsnCity city_pkey = 7;
 }
 
-message City {
+message lbsnCity {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
@@ -139,10 +139,10 @@ message City {
     string url = 3;   
     string geom_center = 4; //WKT Point
     string geom_area = 5; //WKT Polygon
-    Country country_pkey = 6;
+    lbsnCountry country_pkey = 6;
 }
 
-message Country {
+message lbsnCountry {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
@@ -156,7 +156,7 @@ message Country {
     string geom_area = 5; //WKT Polygon   
 }
 
-message PostReaction {
+message lbsnPostReaction {
   /*
    * Primary Key. The unique identifier of the object in the database.
    */
