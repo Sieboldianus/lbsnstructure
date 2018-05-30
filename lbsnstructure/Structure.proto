@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "structure/external/timestamp.proto";
+import "lbsnstructure/external/timestamp.proto";
 /*
  * Describes the Common Data Structure LBSN Concept
  */
