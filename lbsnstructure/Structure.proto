@@ -121,8 +121,8 @@ message lbsnPlace {
   /*
    * Optional Attributes
    */
-    string name = 2;
-    repeated string name_alternatives = 3;
+    string name = 2; //Name in English
+    repeated string name_alternatives = 3; //Alternative names (e.g. in other languages; synonyms).
     int64 post_count = 4;
     string url = 5;   
     string geom_center = 6; //WKT Point
@@ -138,12 +138,13 @@ message lbsnCity {
   /*
    * Optional Attributes
    */
-    string name = 2;
-    repeated string name_alternatives = 3;
-    string url = 4;   
-    string geom_center = 5; //WKT Point
-    string geom_area = 6; //WKT Polygon
-    CompositeKey country_pkey = 7;
+    string name = 2; //Name in English
+    repeated string name_alternatives = 3; //Alternative names (e.g. in other languages; synonyms).
+    string sub_type = 4; //Subtype for lbsnCity (e.g. "Neighborhood", "Admin", etc.)
+    string url = 5;   
+    string geom_center = 6; //WKT Point
+    string geom_area = 7; //WKT Polygon
+    CompositeKey country_pkey = 8;
 }
 
 message lbsnCountry {
@@ -185,7 +186,8 @@ message lbsnPostReaction {
    ReactionType reaction_type = 6;  
    google.protobuf.Timestamp reaction_date = 7;   
    string reaction_content = 8;
-   int64 reaction_like_count = 9;   
+   int64 reaction_like_count = 9;
+   repeated CompositeKey user_mentions_pkey = 10;   
 }
 
 message Language {
