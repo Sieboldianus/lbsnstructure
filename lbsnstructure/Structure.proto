@@ -66,7 +66,7 @@ message lbsnPost {
     repeated string hashtags = 11;
     repeated string emoji = 12;
     int64 post_like_count  = 13;
-    int64 post_reply_count  = 14;
+    int64 post_comment_count  = 14;
     int64 post_views_count  = 15;
     string post_title = 16;
     google.protobuf.Timestamp post_create_date = 17;
@@ -110,6 +110,8 @@ message lbsnUser {
    int64 liked_count = 15; //The number of Posts this user has liked in total.
    google.protobuf.Timestamp active_since = 16; //UTC datetime when the user was first active (e.g. time of account creation, or derived from first post_publish_date)
    string profile_image_url = 17; //URL pointing to the profile image of the user.
+   string user_timezone = 18;
+   sint32 user_utc_offset = 19; 
 
 }
 
@@ -174,10 +176,10 @@ message lbsnPostReaction {
    CompositeKey referencedPost_pkey = 3; // a reference to post to which this reaction refers to  (e.g. doe a reaction of type REPLY, reference original post_pkey here)
    CompositeKey referencedPostreaction_pkey = 4; // a reference to another reaction (e.g. if this reaction is a "like" of another reaction, reference original postreaction_pkey here)
    string reaction_latlng = 5; //WKT Point
-   enum ReactionType { //choose the more specific type if multiple apply. Merge similar types: Retweet -> Share; Star -> Like
+   enum ReactionType { //choose the more specific type if multiple apply. Merge similar types: Retweet -> Share; Reply -> Comment; Star -> Like
        UNKNOWN = 0;
        SHARE = 1;
-       REPLY = 2;
+       COMMENT = 2;
        QUOTE = 3;
        LIKE = 4;
        EMOJI = 5;
