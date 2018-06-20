@@ -7,7 +7,7 @@ import "lbsnstructure/external/timestamp.proto";
 
  message lbsnOrigin {
   /*
-   * The unique identifier of the object.
+   * A unique identifier of the object.
    */
   enum OriginID {
         UNKNOWN = 0;
@@ -36,7 +36,7 @@ message CompositeKey {
 
 message lbsnPost {
   /*
-   * Primary Key. The unique identifier of the object across networks.
+   * Primary Key. A unique identifier of the object across networks.
    */
   CompositeKey pkey = 1;   
   /*
@@ -88,7 +88,7 @@ message lbsnPost {
 
 message lbsnUser {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    */
   CompositeKey pkey = 1;
   /*
@@ -111,13 +111,29 @@ message lbsnUser {
    google.protobuf.Timestamp active_since = 16; //UTC datetime when the user was first active (e.g. time of account creation, or derived from first post_publish_date)
    string profile_image_url = 17; //URL pointing to the profile image of the user.
    string user_timezone = 18;
-   sint32 user_utc_offset = 19; 
+   sint32 user_utc_offset = 19;
+   repeated string user_groups_member = 20; //The list of groups this user has joined/ is a member of (active participation interest).
+   repeated string user_groups_follows = 21; //The list of groups this user follows (viewing interest).
 
+}
+
+message lbsnUserGroups {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Optional Attributes
+   */
+   string usergroup_name = 2;
+   string usergroup_description = 3;
+   int64 member_count = 4;
+   google.protobuf.Timestamp usergroup_createdate = 5;
 }
 
 message lbsnPlace {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    */
   CompositeKey pkey = 1;
   /*
@@ -134,7 +150,7 @@ message lbsnPlace {
 
 message lbsnCity {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    */
   CompositeKey pkey = 1;
   /*
@@ -151,7 +167,7 @@ message lbsnCity {
 
 message lbsnCountry {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    */
   CompositeKey pkey = 1;
   /*
@@ -166,7 +182,7 @@ message lbsnCountry {
 
 message lbsnPostReaction {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    */
   CompositeKey pkey = 1;   
   /*
@@ -194,7 +210,7 @@ message lbsnPostReaction {
 
 message Language {
   /*
-   * Primary Key. The unique identifier of the object in the database.
+   * Primary Key. A unique identifier of the object.
    * A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
    */
   string language_short = 1;
