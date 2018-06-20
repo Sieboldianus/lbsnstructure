@@ -117,7 +117,7 @@ message lbsnUser {
 
 }
 
-message lbsnUserGroups {
+message lbsnUserGroup {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -129,6 +129,7 @@ message lbsnUserGroups {
    string usergroup_description = 3;
    int64 member_count = 4;
    google.protobuf.Timestamp usergroup_createdate = 5;
+   CompositeKey user_owner_pkey = 6;
 }
 
 message lbsnPlace {
