@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='lbsnstructure/Structure.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1dlbsnstructure/Structure.proto\x1a&lbsnstructure/external/timestamp.proto\"\xa2\x01\n\nlbsnOrigin\x12\'\n\torigin_id\x18\x01 \x01(\x0e\x32\x14.lbsnOrigin.OriginID\x12\x0c\n\x04name\x18\x02 \x01(\t\"]\n\x08OriginID\x12\x0b\n\x07UNKNOWN\x10\x00\x12\r\n\tINSTAGRAM\x10\x01\x12\n\n\x06\x46LICKR\x10\x02\x12\x0b\n\x07TWITTER\x10\x03\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x04\x12\x0e\n\nFOURSQUARE\x10\x05\"7\n\x0c\x43ompositeKey\x12\x1b\n\x06origin\x18\x01 \x01(\x0b\x32\x0b.lbsnOrigin\x12\n\n\x02id\x18\x02 \x01(\t\"\x87\x07\n\x08lbsnPost\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x13\n\x0bpost_latlng\x18\x02 \x01(\t\x12!\n\nplace_pkey\x18\x03 \x01(\x0b\x32\r.CompositeKey\x12 \n\tcity_pkey\x18\x04 \x01(\x0b\x32\r.CompositeKey\x12#\n\x0c\x63ountry_pkey\x18\x05 \x01(\x0b\x32\r.CompositeKey\x12 \n\tuser_pkey\x18\x06 \x01(\x0b\x32\r.CompositeKey\x12\x35\n\x11post_publish_date\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x11\n\tpost_body\x18\x08 \x01(\t\x12\x33\n\x10post_geoaccuracy\x18\t \x01(\x0e\x32\x19.lbsnPost.PostGeoaccuracy\x12)\n\x12user_mentions_pkey\x18\n \x03(\x0b\x32\r.CompositeKey\x12\x10\n\x08hashtags\x18\x0b \x03(\t\x12\r\n\x05\x65moji\x18\x0c \x03(\t\x12\x17\n\x0fpost_like_count\x18\r \x01(\x03\x12\x1a\n\x12post_comment_count\x18\x0e \x01(\x03\x12\x18\n\x10post_views_count\x18\x0f \x01(\x03\x12\x12\n\npost_title\x18\x10 \x01(\t\x12\x34\n\x10post_create_date\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1a\n\x12post_thumbnail_url\x18\x12 \x01(\t\x12\x10\n\x08post_url\x18\x13 \x01(\t\x12%\n\tpost_type\x18\x14 \x01(\x0e\x32\x12.lbsnPost.PostType\x12\x13\n\x0bpost_filter\x18\x15 \x01(\t\x12\x18\n\x10post_quote_count\x18\x16 \x01(\x03\x12\x18\n\x10post_share_count\x18\x17 \x01(\x03\x12\x14\n\x0cinput_source\x18\x18 \x01(\t\x12 \n\rpost_language\x18\x19 \x01(\x0b\x32\t.Language\"L\n\x0fPostGeoaccuracy\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06LATLNG\x10\x01\x12\t\n\x05PLACE\x10\x02\x12\x08\n\x04\x43ITY\x10\x03\x12\x0b\n\x07\x43OUNTRY\x10\x04\"5\n\x08PostType\x12\x08\n\x04TEXT\x10\x00\x12\t\n\x05IMAGE\x10\x01\x12\t\n\x05VIDEO\x10\x02\x12\t\n\x05OTHER\x10\x03\"\x87\x04\n\x08lbsnUser\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x15\n\ruser_fullname\x18\x03 \x01(\t\x12\x0f\n\x07\x66ollows\x18\x04 \x01(\x03\x12\x10\n\x08\x66ollowed\x18\x05 \x01(\x03\x12\x13\n\x0bgroup_count\x18\x06 \x01(\x03\x12\x11\n\tbiography\x18\x07 \x01(\t\x12\x12\n\npost_count\x18\x08 \x01(\x03\x12\x0b\n\x03url\x18\t \x01(\t\x12\x12\n\nis_private\x18\n \x01(\x08\x12\x14\n\x0cis_available\x18\x0b \x01(\x08\x12 \n\ruser_language\x18\x0c \x01(\x0b\x32\t.Language\x12\x15\n\ruser_location\x18\r \x01(\t\x12\x1a\n\x12user_location_geom\x18\x0e \x01(\t\x12\x13\n\x0bliked_count\x18\x0f \x01(\x03\x12\x30\n\x0c\x61\x63tive_since\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x19\n\x11profile_image_url\x18\x11 \x01(\t\x12\x15\n\ruser_timezone\x18\x12 \x01(\t\x12\x17\n\x0fuser_utc_offset\x18\x13 \x01(\x11\x12\x1a\n\x12user_groups_member\x18\x14 \x03(\t\x12\x1b\n\x13user_groups_follows\x18\x15 \x03(\t\"\xdb\x01\n\rlbsnUserGroup\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x16\n\x0eusergroup_name\x18\x02 \x01(\t\x12\x1d\n\x15usergroup_description\x18\x03 \x01(\t\x12\x14\n\x0cmember_count\x18\x04 \x01(\x03\x12\x38\n\x14usergroup_createdate\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12&\n\x0fuser_owner_pkey\x18\x06 \x01(\x0b\x32\r.CompositeKey\"\xbc\x01\n\tlbsnPlace\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x12\n\npost_count\x18\x04 \x01(\x03\x12\x0b\n\x03url\x18\x05 \x01(\t\x12\x13\n\x0bgeom_center\x18\x06 \x01(\t\x12\x11\n\tgeom_area\x18\x07 \x01(\t\x12 \n\tcity_pkey\x18\x08 \x01(\x0b\x32\r.CompositeKey\"\xbc\x01\n\x08lbsnCity\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x10\n\x08sub_type\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\x12\x13\n\x0bgeom_center\x18\x06 \x01(\t\x12\x11\n\tgeom_area\x18\x07 \x01(\t\x12#\n\x0c\x63ountry_pkey\x18\x08 \x01(\x0b\x32\r.CompositeKey\"\x88\x01\n\x0blbsnCountry\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x0b\n\x03url\x18\x04 \x01(\t\x12\x13\n\x0bgeom_center\x18\x05 \x01(\t\x12\x11\n\tgeom_area\x18\x06 \x01(\t\"\xf6\x03\n\x10lbsnPostReaction\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12 \n\tuser_pkey\x18\x02 \x01(\x0b\x32\r.CompositeKey\x12*\n\x13referencedPost_pkey\x18\x03 \x01(\x0b\x32\r.CompositeKey\x12\x32\n\x1breferencedPostreaction_pkey\x18\x04 \x01(\x0b\x32\r.CompositeKey\x12\x17\n\x0freaction_latlng\x18\x05 \x01(\t\x12\x35\n\rreaction_type\x18\x06 \x01(\x0e\x32\x1e.lbsnPostReaction.ReactionType\x12\x31\n\rreaction_date\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x18\n\x10reaction_content\x18\x08 \x01(\t\x12\x1b\n\x13reaction_like_count\x18\t \x01(\x03\x12)\n\x12user_mentions_pkey\x18\n \x03(\x0b\x32\r.CompositeKey\"^\n\x0cReactionType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05SHARE\x10\x01\x12\x0b\n\x07\x43OMMENT\x10\x02\x12\t\n\x05QUOTE\x10\x03\x12\x08\n\x04LIKE\x10\x04\x12\t\n\x05\x45MOJI\x10\x05\x12\t\n\x05OTHER\x10\x06\"J\n\x08Language\x12\x16\n\x0elanguage_short\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x18\n\x10language_name_de\x18\x03 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x1dlbsnstructure/Structure.proto\x1a&lbsnstructure/external/timestamp.proto\"\xa2\x01\n\nlbsnOrigin\x12\'\n\torigin_id\x18\x01 \x01(\x0e\x32\x14.lbsnOrigin.OriginID\x12\x0c\n\x04name\x18\x02 \x01(\t\"]\n\x08OriginID\x12\x0b\n\x07UNKNOWN\x10\x00\x12\r\n\tINSTAGRAM\x10\x01\x12\n\n\x06\x46LICKR\x10\x02\x12\x0b\n\x07TWITTER\x10\x03\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x04\x12\x0e\n\nFOURSQUARE\x10\x05\"7\n\x0c\x43ompositeKey\x12\x1b\n\x06origin\x18\x01 \x01(\x0b\x32\x0b.lbsnOrigin\x12\n\n\x02id\x18\x02 \x01(\t\"\x87\x07\n\x08lbsnPost\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x13\n\x0bpost_latlng\x18\x02 \x01(\t\x12!\n\nplace_pkey\x18\x03 \x01(\x0b\x32\r.CompositeKey\x12 \n\tcity_pkey\x18\x04 \x01(\x0b\x32\r.CompositeKey\x12#\n\x0c\x63ountry_pkey\x18\x05 \x01(\x0b\x32\r.CompositeKey\x12 \n\tuser_pkey\x18\x06 \x01(\x0b\x32\r.CompositeKey\x12\x35\n\x11post_publish_date\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x11\n\tpost_body\x18\x08 \x01(\t\x12\x33\n\x10post_geoaccuracy\x18\t \x01(\x0e\x32\x19.lbsnPost.PostGeoaccuracy\x12)\n\x12user_mentions_pkey\x18\n \x03(\x0b\x32\r.CompositeKey\x12\x10\n\x08hashtags\x18\x0b \x03(\t\x12\r\n\x05\x65moji\x18\x0c \x03(\t\x12\x17\n\x0fpost_like_count\x18\r \x01(\x03\x12\x1a\n\x12post_comment_count\x18\x0e \x01(\x03\x12\x18\n\x10post_views_count\x18\x0f \x01(\x03\x12\x12\n\npost_title\x18\x10 \x01(\t\x12\x34\n\x10post_create_date\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1a\n\x12post_thumbnail_url\x18\x12 \x01(\t\x12\x10\n\x08post_url\x18\x13 \x01(\t\x12%\n\tpost_type\x18\x14 \x01(\x0e\x32\x12.lbsnPost.PostType\x12\x13\n\x0bpost_filter\x18\x15 \x01(\t\x12\x18\n\x10post_quote_count\x18\x16 \x01(\x03\x12\x18\n\x10post_share_count\x18\x17 \x01(\x03\x12\x14\n\x0cinput_source\x18\x18 \x01(\t\x12 \n\rpost_language\x18\x19 \x01(\x0b\x32\t.Language\"L\n\x0fPostGeoaccuracy\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06LATLNG\x10\x01\x12\t\n\x05PLACE\x10\x02\x12\x08\n\x04\x43ITY\x10\x03\x12\x0b\n\x07\x43OUNTRY\x10\x04\"5\n\x08PostType\x12\x08\n\x04TEXT\x10\x00\x12\t\n\x05IMAGE\x10\x01\x12\t\n\x05VIDEO\x10\x02\x12\t\n\x05OTHER\x10\x03\"\x87\x04\n\x08lbsnUser\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x15\n\ruser_fullname\x18\x03 \x01(\t\x12\x0f\n\x07\x66ollows\x18\x04 \x01(\x03\x12\x10\n\x08\x66ollowed\x18\x05 \x01(\x03\x12\x13\n\x0bgroup_count\x18\x06 \x01(\x03\x12\x11\n\tbiography\x18\x07 \x01(\t\x12\x12\n\npost_count\x18\x08 \x01(\x03\x12\x0b\n\x03url\x18\t \x01(\t\x12\x12\n\nis_private\x18\n \x01(\x08\x12\x14\n\x0cis_available\x18\x0b \x01(\x08\x12 \n\ruser_language\x18\x0c \x01(\x0b\x32\t.Language\x12\x15\n\ruser_location\x18\r \x01(\t\x12\x1a\n\x12user_location_geom\x18\x0e \x01(\t\x12\x13\n\x0bliked_count\x18\x0f \x01(\x03\x12\x30\n\x0c\x61\x63tive_since\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x19\n\x11profile_image_url\x18\x11 \x01(\t\x12\x15\n\ruser_timezone\x18\x12 \x01(\t\x12\x17\n\x0fuser_utc_offset\x18\x13 \x01(\x11\x12\x1a\n\x12user_groups_member\x18\x14 \x03(\t\x12\x1b\n\x13user_groups_follows\x18\x15 \x03(\t\"\xdb\x01\n\rlbsnUserGroup\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x16\n\x0eusergroup_name\x18\x02 \x01(\t\x12\x1d\n\x15usergroup_description\x18\x03 \x01(\t\x12\x14\n\x0cmember_count\x18\x04 \x01(\x03\x12\x38\n\x14usergroup_createdate\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12&\n\x0fuser_owner_pkey\x18\x06 \x01(\x0b\x32\r.CompositeKey\"\xbc\x01\n\tlbsnPlace\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x12\n\npost_count\x18\x04 \x01(\x03\x12\x0b\n\x03url\x18\x05 \x01(\t\x12\x13\n\x0bgeom_center\x18\x06 \x01(\t\x12\x11\n\tgeom_area\x18\x07 \x01(\t\x12 \n\tcity_pkey\x18\x08 \x01(\x0b\x32\r.CompositeKey\"\xbc\x01\n\x08lbsnCity\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x10\n\x08sub_type\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\x12\x13\n\x0bgeom_center\x18\x06 \x01(\t\x12\x11\n\tgeom_area\x18\x07 \x01(\t\x12#\n\x0c\x63ountry_pkey\x18\x08 \x01(\x0b\x32\r.CompositeKey\"\x88\x01\n\x0blbsnCountry\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x11name_alternatives\x18\x03 \x03(\t\x12\x0b\n\x03url\x18\x04 \x01(\t\x12\x13\n\x0bgeom_center\x18\x05 \x01(\t\x12\x11\n\tgeom_area\x18\x06 \x01(\t\"\xf6\x03\n\x10lbsnPostReaction\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12 \n\tuser_pkey\x18\x02 \x01(\x0b\x32\r.CompositeKey\x12*\n\x13referencedPost_pkey\x18\x03 \x01(\x0b\x32\r.CompositeKey\x12\x32\n\x1breferencedPostreaction_pkey\x18\x04 \x01(\x0b\x32\r.CompositeKey\x12\x17\n\x0freaction_latlng\x18\x05 \x01(\t\x12\x35\n\rreaction_type\x18\x06 \x01(\x0e\x32\x1e.lbsnPostReaction.ReactionType\x12\x31\n\rreaction_date\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x18\n\x10reaction_content\x18\x08 \x01(\t\x12\x1b\n\x13reaction_like_count\x18\t \x01(\x03\x12)\n\x12user_mentions_pkey\x18\n \x03(\x0b\x32\r.CompositeKey\"^\n\x0cReactionType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05SHARE\x10\x01\x12\x0b\n\x07\x43OMMENT\x10\x02\x12\t\n\x05QUOTE\x10\x03\x12\x08\n\x04LIKE\x10\x04\x12\t\n\x05\x45MOJI\x10\x05\x12\t\n\x05OTHER\x10\x06\"\x8b\x02\n\x10lbsnRelationship\x12\x1b\n\x04pkey\x18\x01 \x01(\x0b\x32\r.CompositeKey\x12%\n\x0erelatedTo_pkey\x18\x02 \x01(\x0b\x32\r.CompositeKey\x12=\n\x11relationship_type\x18\x06 \x01(\x0e\x32\".lbsnRelationship.RelationshipType\"t\n\x10RelationshipType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0c\n\x08isFRIEND\x10\x01\x12\x0f\n\x0bisCONNECTED\x10\x02\x12\x0b\n\x07isEQUAL\x10\x03\x12\x0b\n\x07inGROUP\x10\x04\x12\x0f\n\x0binCOMMUNITY\x10\x05\x12\t\n\x05OTHER\x10\x06\"J\n\x08Language\x12\x16\n\x0elanguage_short\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x18\n\x10language_name_de\x18\x03 \x01(\tb\x06proto3')
   ,
   dependencies=[lbsnstructure_dot_external_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -169,6 +169,48 @@ _LBSNPOSTREACTION_REACTIONTYPE = _descriptor.EnumDescriptor(
   serialized_end=2969,
 )
 _sym_db.RegisterEnumDescriptor(_LBSNPOSTREACTION_REACTIONTYPE)
+
+_LBSNRELATIONSHIP_RELATIONSHIPTYPE = _descriptor.EnumDescriptor(
+  name='RelationshipType',
+  full_name='lbsnRelationship.RelationshipType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNKNOWN', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='isFRIEND', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='isCONNECTED', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='isEQUAL', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='inGROUP', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='inCOMMUNITY', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OTHER', index=6, number=6,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=3123,
+  serialized_end=3239,
+)
+_sym_db.RegisterEnumDescriptor(_LBSNRELATIONSHIP_RELATIONSHIPTYPE)
 
 
 _LBSNORIGIN = _descriptor.Descriptor(
@@ -1007,6 +1049,52 @@ _LBSNPOSTREACTION = _descriptor.Descriptor(
 )
 
 
+_LBSNRELATIONSHIP = _descriptor.Descriptor(
+  name='lbsnRelationship',
+  full_name='lbsnRelationship',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pkey', full_name='lbsnRelationship.pkey', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='relatedTo_pkey', full_name='lbsnRelationship.relatedTo_pkey', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='relationship_type', full_name='lbsnRelationship.relationship_type', index=2,
+      number=6, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _LBSNRELATIONSHIP_RELATIONSHIPTYPE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2972,
+  serialized_end=3239,
+)
+
+
 _LANGUAGE = _descriptor.Descriptor(
   name='Language',
   full_name='Language',
@@ -1047,8 +1135,8 @@ _LANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2971,
-  serialized_end=3045,
+  serialized_start=3241,
+  serialized_end=3315,
 )
 
 _LBSNORIGIN.fields_by_name['origin_id'].enum_type = _LBSNORIGIN_ORIGINID
@@ -1086,6 +1174,10 @@ _LBSNPOSTREACTION.fields_by_name['reaction_type'].enum_type = _LBSNPOSTREACTION_
 _LBSNPOSTREACTION.fields_by_name['reaction_date'].message_type = lbsnstructure_dot_external_dot_timestamp__pb2._TIMESTAMP
 _LBSNPOSTREACTION.fields_by_name['user_mentions_pkey'].message_type = _COMPOSITEKEY
 _LBSNPOSTREACTION_REACTIONTYPE.containing_type = _LBSNPOSTREACTION
+_LBSNRELATIONSHIP.fields_by_name['pkey'].message_type = _COMPOSITEKEY
+_LBSNRELATIONSHIP.fields_by_name['relatedTo_pkey'].message_type = _COMPOSITEKEY
+_LBSNRELATIONSHIP.fields_by_name['relationship_type'].enum_type = _LBSNRELATIONSHIP_RELATIONSHIPTYPE
+_LBSNRELATIONSHIP_RELATIONSHIPTYPE.containing_type = _LBSNRELATIONSHIP
 DESCRIPTOR.message_types_by_name['lbsnOrigin'] = _LBSNORIGIN
 DESCRIPTOR.message_types_by_name['CompositeKey'] = _COMPOSITEKEY
 DESCRIPTOR.message_types_by_name['lbsnPost'] = _LBSNPOST
@@ -1095,6 +1187,7 @@ DESCRIPTOR.message_types_by_name['lbsnPlace'] = _LBSNPLACE
 DESCRIPTOR.message_types_by_name['lbsnCity'] = _LBSNCITY
 DESCRIPTOR.message_types_by_name['lbsnCountry'] = _LBSNCOUNTRY
 DESCRIPTOR.message_types_by_name['lbsnPostReaction'] = _LBSNPOSTREACTION
+DESCRIPTOR.message_types_by_name['lbsnRelationship'] = _LBSNRELATIONSHIP
 DESCRIPTOR.message_types_by_name['Language'] = _LANGUAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1160,6 +1253,13 @@ lbsnPostReaction = _reflection.GeneratedProtocolMessageType('lbsnPostReaction', 
   # @@protoc_insertion_point(class_scope:lbsnPostReaction)
   ))
 _sym_db.RegisterMessage(lbsnPostReaction)
+
+lbsnRelationship = _reflection.GeneratedProtocolMessageType('lbsnRelationship', (_message.Message,), dict(
+  DESCRIPTOR = _LBSNRELATIONSHIP,
+  __module__ = 'lbsnstructure.Structure_pb2'
+  # @@protoc_insertion_point(class_scope:lbsnRelationship)
+  ))
+_sym_db.RegisterMessage(lbsnRelationship)
 
 Language = _reflection.GeneratedProtocolMessageType('Language', (_message.Message,), dict(
   DESCRIPTOR = _LANGUAGE,
