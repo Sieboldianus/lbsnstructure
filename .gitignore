@@ -1,0 +1,4 @@
+
+examples/python/dist/
+*.egg-info
+examples/python/.pypirc

@@ -27,7 +27,7 @@ The background technical infrastructure was administered by [Marc](https://gitla
 
 To compile ProtoBuffers structure in your language, get the [current release for your OS](https://developers.google.com/protocol-buffers/docs/downloads), clone this repository (or download [Structure.proto](lbsnstructure/Structure.proto)) and execute (Python example):
 
-`protoc --python_out=examples/python lbsnstructure/Structure.proto`  
+`protoc --python_out=examples/python lbsnstructure/lbsnstructure.proto`  
 `protoc --python_out=examples/python lbsnstructure/external/timestamp.proto`  
 
 Replace `--python` with your language of choice. 
