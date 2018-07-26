@@ -34,6 +34,16 @@ message CompositeKey {
     string id = 2;  
 }
 
+message RelationshipKey {
+  /*
+   *  Many-to-many relationships that 
+    could otherwise not be implemented in the relational lbsn structure. Relationships can 
+    also link entities between two different origin_id's (e.g. different services).
+   */
+    CompositeKey relation_to = 1;
+    CompositeKey relation_from = 2;  
+}
+
 message lbsnPost {
   /*
    * Primary Key. A unique identifier of the object across networks.
@@ -213,8 +223,7 @@ message lbsnRelationship {
   /*
    * Primary Key. A unique identifier of the object.
    */
-  CompositeKey pkey = 1;  
-  CompositeKey relatedTo_pkey = 2;  
+  RelationshipKey pkey = 1;  
   /*
    * Optional Attributes
    */
@@ -224,10 +233,14 @@ message lbsnRelationship {
        isCONNECTED = 2; //A user that is connected to someone, e.g. a follower of user x (i.e. this user y is the follower of user x). Being connected to someone (e.g. being a follower) is not a mutual relationship.
        isEQUAL = 3; //A user that has multiple representations on the same service or is linked across services.
        inGROUP = 4;
-       inCOMMUNITY = 5;
-       OTHER = 6;
+       followsGROUP = 5;
+       inCOMMUNITY = 6;
+       MENTIONS_USER = 7;
+       hasHASHTAG = 8;
+       hasEMOJI = 9;
+       OTHER = 10;
    }
-   RelationshipType relationship_type = 6;    
+   RelationshipType relationship_type = 2;    
 }
 
 message Language {

@@ -1,4 +1,8 @@
-## Proto Buffers Standardization of Social Media Data Structures and Cross-Network Interrelationships
+## LBSNSTRUCTURE
+
+A common language independend and cross-network social-media datascheme.
+
+## Description
 
 This is the first version of a common, standardized conceptual data model for analyzing, comparing and relating information of different location based social networks (LBSN). With the structure, we focus on three important directions that are of importance to the whole Priority Program:
 
