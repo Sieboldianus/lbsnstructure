@@ -1,6 +1,6 @@
 ## LBSNSTRUCTURE
 
-A common language independend and cross-network social-media datascheme.
+A common language independent and cross-network social-media datascheme.
 
 ## Description
 
