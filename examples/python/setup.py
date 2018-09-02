@@ -4,8 +4,8 @@ with open('README.md') as f:
     long_description = f.read()
         
 setup(name='lbsnstructure',
-      version='0.2.6',
-      description='A common language independend and cross-network social-media datascheme.',
+      version='0.2.6.1',
+      description='A common language independent and cross-network social-media data scheme.',
       long_description=long_description,
       long_description_content_type='text/markdown',
       url='https://gitlab.vgiscience.de/lbsn/concept',
