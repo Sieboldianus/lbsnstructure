@@ -95,6 +95,7 @@ message lbsnPost {
     int64 post_share_count = 23; //Number of times this Post has been shared by other users, e.g. count of Retweets in Twitter.
     string input_source = 24; //Type of input device used by the user to post, for a list see Twitter, e.g. "Web", "IPhone", "Android" etc., recommendation: should be oriented at Twitter source types.
     Language post_language = 25; //A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
+    int32 post_content_license = 26; //An integer for specifying licenses attached to post (e.g. All Rights Reserved = 0). Numbers shamelessly ripped from Flickr: https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
 }
 
 message lbsnUser {
@@ -154,10 +155,17 @@ message lbsnPlace {
     string name = 2; //Name in English
     repeated string name_alternatives = 3; //Alternative names (e.g. in other languages; synonyms).
     int64 post_count = 4;
-    string url = 5;   
+    string url = 5; //A link to reach the place on respective LBSN
     string geom_center = 6; //WKT Point
     string geom_area = 7; //WKT Polygon
     CompositeKey city_pkey = 8;
+    string place_description = 9;
+    string place_website = 10; //A link provided by users for this place (e.g. webpage for restaurant, park-management etc.)
+    string place_phone = 11; //Telephone number publicly provided for some places on LBSN.
+    string address = 12; //Address publicly provided for some places on LBSN.
+    string zip_code = 13; //Zip_code publicly provided for some places on LBSN.
+    int64 checkin_count = 14;
+    int64 like_count = 15;
 }
 
 message lbsnCity {
