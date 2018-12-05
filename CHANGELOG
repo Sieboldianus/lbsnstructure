@@ -1,6 +1,10 @@
                    ProtoBuf LBSN Concept Changelog
                    ================================
-                   
+
+Version v0.1.61
+--------------
+- Extended structure for additional place attributes
+
 Version v0.1.5
 --------------
 - Initial Structure
