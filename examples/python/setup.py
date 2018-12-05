@@ -4,7 +4,7 @@ with open('README.md') as f:
     long_description = f.read()
         
 setup(name='lbsnstructure',
-      version='0.2.6.2',
+      version='0.2.6.211',
       description='A common language independent and cross-network social-media data scheme.',
       long_description=long_description,
       long_description_content_type='text/markdown',

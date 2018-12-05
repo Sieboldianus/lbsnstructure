@@ -24,14 +24,14 @@ import lbsnstructure
 3. Compile structure to python package `protoc --python_out=examples/python lbsnstructure/structure.proto`  
 4. Install with `pip install .` in examples/python
 
-# Developers
+## Developers
 
 For development & testing, make a local clone of this repository  
 ```shell
 git clone git@gitlab.vgiscience.de:lbsn/concept.git
 ```
 
-Go to subfolder `examples\python and` symlink the folder to your  
+Go to subfolder `examples\python` and symlink the folder to your  
 Python's site-packages folder with:  
 ```shell
 python setup.py develop
