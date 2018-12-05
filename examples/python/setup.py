@@ -4,12 +4,12 @@ with open('README.md') as f:
     long_description = f.read()
         
 setup(name='lbsnstructure',
-      version='0.2.6.1',
+      version='0.2.6.2',
       description='A common language independent and cross-network social-media data scheme.',
       long_description=long_description,
       long_description_content_type='text/markdown',
       url='https://gitlab.vgiscience.de/lbsn/concept',
-      author='Filip Krumpe; Alexander Dunkel',
+      author='Filip Krumpe; Alexander Dunkel; Marc Löchner',
       author_email='alexander.dunkel@tu-dresden.de',
       license='MIT',
       packages=['lbsnstructure'],
