@@ -1,6 +1,4 @@
-
-examples/python/dist/
+examples/*
 *.egg-info
-examples/python/.pypirc
 __pycache__
-examples/python/.vscode/settings.json
+
