@@ -1,10 +1,26 @@
+# -*- coding: utf-8 -*-
+
+"""Setuptools config file
+"""
+
 from setuptools import setup
+import sys
 
 with open('README.md') as f:
     long_description = f.read()
-        
+
+try:
+    from semantic_release import setup_hook
+    setup_hook(sys.argv)
+except ImportError:
+    pass
+
+version = {}
+with open("lbsnstructure/version.py") as fp:
+    exec(fp.read(), version)
+
 setup(name='lbsnstructure',
-      version='0.2.6.211',
+      version=version['__version__'],
       description='A common language independent and cross-network social-media data scheme.',
       long_description=long_description,
       long_description_content_type='text/markdown',

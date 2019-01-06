@@ -3,3 +3,4 @@ examples/python/dist/
 *.egg-info
 examples/python/.pypirc
 __pycache__
+examples/python/.vscode/settings.json
