@@ -1,0 +1,3 @@
+[submodule "examples/python"]
+	path = examples/python
+	url = ../../lbsn/lbsnstructure-python.git

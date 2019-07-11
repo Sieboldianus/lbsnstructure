@@ -1,4 +1,3 @@
-examples/*
 *.egg-info
 __pycache__
 
