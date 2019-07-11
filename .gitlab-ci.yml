@@ -8,8 +8,8 @@ release:
       - pip install anybadge
   stage: build
   script:
-    # create badges
-    - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/version.py`
+    # create badges (use version from python compiled spec)
+    - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/lbsnstructure/version.py`
     - echo "Version is ${version_var::-1}"
     - anybadge -l version --value="${version_var::-1}" --file=version.svg --color=green
     - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
