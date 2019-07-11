@@ -1,4 +1,4 @@
-![version](https://lbsn.vgiscience.org/concept/version.svg) ![pipeline](https://lbsn.vgiscience.org/concept/pipeline.svg)
+![version](https://lbsn.vgiscience.org/concept/version.svg) ![pypi version](https://lbsn.vgiscience.org/concept/pypi.svg) ![pipeline](https://lbsn.vgiscience.org/concept/pipeline.svg)
 
 ## LBSNSTRUCTURE
 
