@@ -1,3 +1,5 @@
+![version](https://lbsn.vgiscience.org/concept/version.svg) ![pipeline](https://lbsn.vgiscience.org/concept/pipeline.svg)
+
 ## LBSNSTRUCTURE
 
 A common language independent and cross-network social-media datascheme.

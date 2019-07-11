@@ -1,0 +1,36 @@
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+
+release:
+  image: python:latest
+  before_script:
+      - pip install anybadge
+  stage: build
+  script:
+    # create badges
+    - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/version.py`
+    - echo "Version is ${version_var::-1}"
+    - anybadge -l version --value="${version_var::-1}" --file=version.svg --color=green
+    - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
+  artifacts:
+    paths:
+      - pipeline.svg
+      - version.svg
+  only:
+  - master
+
+pages:
+  stage: deploy
+  script:
+    # create folder public for badges
+    - mkdir .public
+    - cp pipeline.svg .public
+    - cp version.svg .public
+    - mv .public public
+  artifacts:
+    name: pages
+    paths:
+    - public
+  only:
+  - master
