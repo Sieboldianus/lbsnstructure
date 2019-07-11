@@ -12,11 +12,15 @@ release:
     - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/lbsnstructure/version.py`
     - echo "Version is ${version_var::-1}"
     - anybadge -l version --value="${version_var::-1}" --file=version.svg --color=green
+    - pypi_version=$(pip search lbsnstructure | cut -d "(" -f2 | cut -d ")" -f1 | sed -r "s/[latest]+//g")
+    - echo "Pypi version was $pypi_version"
+    - anybadge -l pypi --value="$pypi_version" --file=pypi.svg --color=green
     - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
   artifacts:
     paths:
       - pipeline.svg
       - version.svg
+      - pypi.svg
   only:
   - master
 
@@ -27,6 +31,7 @@ pages:
     - mkdir .public
     - cp pipeline.svg .public
     - cp version.svg .public
+    - cp pypi.svg .public
     - mv .public public
   artifacts:
     name: pages
