@@ -41,7 +41,7 @@ pages:
     - mv .public public
     # build docs
     - mkdocs build
-    - mv site public
+    - mv docs public
   artifacts:
     name: pages
     paths:
