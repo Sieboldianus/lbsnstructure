@@ -1,6 +1,6 @@
 ![version](https://lbsn.vgiscience.org/concept/version.svg) ![pypi version](https://lbsn.vgiscience.org/concept/pypi.svg) ![pipeline](https://lbsn.vgiscience.org/concept/pipeline.svg)
 
-# Welcome to the LBSN Structure Concept Docs
+# Welcome to the LBSN Structure Concept
 
 This documentation contains information on the current **lbsn structure concept** version.
 
