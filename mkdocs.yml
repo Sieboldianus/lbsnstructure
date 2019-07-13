@@ -1,0 +1,8 @@
+site_name: LBSN Structure Concept
+site_url: https://lbsn.gitlab.vgiscience.de/concept
+site_author: Alexander Dunkel, Marc Löchner, Filip Krumpe
+copyright: MIT License, Copyright (c) 2019 Alexander Dunkel, Marc Löchner, Filip Krumpe
+nav:
+    - 'Introduction': 'index.md'
+    - 'Structure Overview': 'structure-overview.md'
+    - 'About': 'about.md'

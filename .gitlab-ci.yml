@@ -24,6 +24,16 @@ release:
   only:
   - master
 
+docs:
+  image: python:alpine
+  before_script:
+  - pip install mkdocs
+  # Add your custom theme if not inside a theme_dir
+  # (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes)
+  # - pip install mkdocs-material
+  only:
+  - master
+
 pages:
   stage: deploy
   script:
@@ -33,9 +43,13 @@ pages:
     - cp version.svg .public
     - cp pypi.svg .public
     - mv .public public
+    # build docs
+    - mkdocs build
+    - mv site public
   artifacts:
     name: pages
     paths:
     - public
   only:
   - master
+
