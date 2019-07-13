@@ -5,5 +5,9 @@ copyright: MIT License, Copyright (c) 2019 Alexander Dunkel, Marc Löchner, Fili
 site_dir: site
 nav:
     - 'Introduction': 'index.md'
-    - 'Structure Overview': 'structure-overview.md'
+    - User Guide:
+        - 'Structure Overview': 'structure-overview.md'
+        - 'Service Mappings': 'service_function_overview.md'
+        - 'Privacy & Anonymization': 'security-anonymization.md'
+        - 'Example queries': 'example-queries.md'
     - 'About': 'about.md'
