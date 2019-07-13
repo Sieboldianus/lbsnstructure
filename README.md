@@ -19,6 +19,10 @@ Here's one visualization from our Heidelberg Example dataset, which shows all ot
 
 Furthermore, we decided to describe our common lbsn structure with the platform and language independent [Proto Buffers](https://developers.google.com/protocol-buffers/). [These files](https://gitlab.vgiscience.de/lbsn/concept) can be used to compile and implement our proposed structure in any language such as Python, Java or C++.
 
+## Docs
+
+The full Documentation is available at [lbsn.vgiscience.org/concept/docs/](https://lbsn.vgiscience.org/concept/docs/).
+
 ## Quick Start
 
 To compile ProtoBuffers structure in your language, get the [current release for your OS](https://developers.google.com/protocol-buffers/docs/downloads), clone this repository (or download [Structure.proto](lbsnstructure/Structure.proto)) and execute (Python example):
