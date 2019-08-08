@@ -30,13 +30,14 @@ To compile ProtoBuffers structure in your language, get the [current release for
 
 ```bash
 protoc --python_out=examples/python lbsnstructure/lbsnstructure.proto
-protoc --python_out=examples/python google/timestamp.proto
+protoc --python_out=examples/python google/protobuf/timestamp.proto
 ```
 
 Replace `--python` with your language of choice, e.g. for php:  
 
 ```bash
-protoc --php_out=examples/php/lbsnstructure lbsnstructure/lbsnstructure.proto
+protoc --php_out=examples/php/ lbsnstructure/lbsnstructure.proto
+protoc --php_out=examples/php/ google/protobuf/timestamp.proto
 ```
 
 If successful, you will see a file generated in output directory in your language, e.g. `lbsnstructure/lbsnstructure_pb2.py` ([Note](https://developers.google.com/protocol-buffers/docs/reference/python-generated) that currently both proto2 and proto3 append "_pb2.py" to generated filenames). 
