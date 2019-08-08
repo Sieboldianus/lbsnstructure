@@ -9,7 +9,7 @@ release:
   stage: build
   script:
     # create badges (use version from python compiled spec)
-    - php_version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/php/lbsnstructure/version/version.py`
+    - php_version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/php/version/version.py`
     - python_version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/lbsnstructure/version.py`
     - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . version/version.py`
     - anybadge -l php --value="${version_var::-1}" --file=version.svg --color=green
