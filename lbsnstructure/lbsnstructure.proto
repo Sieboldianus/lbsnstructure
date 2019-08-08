@@ -1,12 +1,16 @@
 syntax = "proto3";
 
-//import "lbsnstructure/external/timestamp.proto";
+// global package namespace
+package lbsn.structure;
+
+// import structure dependencies
 import "google/protobuf/timestamp.proto";
+
 /*
  * Describes the Common Data Structure LBSN Concept
  */
 
- message lbsnOrigin {
+ message Origin {
   /*
    * A unique identifier of the object.
    */
@@ -31,7 +35,7 @@ message CompositeKey {
    * is constructed from the internal id (origin, 1= Instagram, 2= Flickr, 3= Twitter etc.)
    * and the services own, hashed or encrypted (gu)id
    */
-    lbsnOrigin origin = 1;
+    Origin origin = 1;
     string id = 2;  
 }
 
@@ -45,7 +49,7 @@ message RelationshipKey {
     CompositeKey relation_from = 2;  
 }
 
-message lbsnPost {
+message Post {
   /*
    * Primary Key. A unique identifier of the object across networks.
    */
@@ -98,7 +102,7 @@ message lbsnPost {
     int32 post_content_license = 26; //An integer for specifying licenses attached to post (e.g. All Rights Reserved = 0). Numbers shamelessly ripped from Flickr: https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
 }
 
-message lbsnUser {
+message User {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -129,7 +133,7 @@ message lbsnUser {
 
 }
 
-message lbsnUserGroup {
+message UserGroup {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -144,7 +148,7 @@ message lbsnUserGroup {
    CompositeKey user_owner_pkey = 6;
 }
 
-message lbsnPlace {
+message Place {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -168,7 +172,7 @@ message lbsnPlace {
     int64 like_count = 15;
 }
 
-message lbsnCity {
+message City {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -185,7 +189,7 @@ message lbsnCity {
     CompositeKey country_pkey = 8;
 }
 
-message lbsnCountry {
+message Country {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -200,7 +204,7 @@ message lbsnCountry {
     string geom_area = 6; //WKT Polygon   
 }
 
-message lbsnPostReaction {
+message PostReaction {
   /*
    * Primary Key. A unique identifier of the object.
    */
@@ -228,7 +232,7 @@ message lbsnPostReaction {
    repeated CompositeKey user_mentions_pkey = 10;   
 }
 
-message lbsnRelationship {
+message Relationship {
   /*
    * Primary Key. A unique identifier of the object.
    */
