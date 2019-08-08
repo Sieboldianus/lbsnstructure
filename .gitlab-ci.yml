@@ -13,7 +13,7 @@ release:
     - python_version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . examples/python/lbsnstructure/version.py`
     - version_var=`sed -n "s/__version__ = '\(.*\)/\1/p" < . version/version.py`
     - anybadge -l php --value="${version_var::-1}" --file=version.svg --color=green
-    - anybadge -l php --value="${php_version_var::-1}" --file=php-version.svg --color=blue
+    - anybadge -l php --value="${php_version_var::-1}" --file=php-version.svg --color=#1182C3
     - anybadge -l python --value="${python_version_var::-1}" --file=python-version.svg --color=yellow
     - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
   artifacts:
