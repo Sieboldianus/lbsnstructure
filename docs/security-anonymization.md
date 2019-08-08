@@ -1,6 +1,6 @@
 # User Privacy & Anonymization
 
-While complete anonymization will result in data that is difficult to use, there are a number of techniques that ensure user privacy and still allow researchers to analyize data.
+While complete anonymization will result in data that is difficult to use, there are a number of techniques that ensure user privacy and still allow researchers to analyze data.
 Firstly, there are two options available for anonymizing personal user information, `encrypt` and `digest`.
 
 ## Encrypt Function
@@ -21,13 +21,18 @@ SELECT decrypt(decode(user_guid::hex,'bytea'), 'key'::bytea, 'aes') AS "user_gui
 SELECT encode(digest('yoursalt' || 'yoursaltpw'|| user_guid,'sha256'), 'hex') AS "user_GuidHash";
 ```
 
-Unlike encrypt, **digest** will *hash* content by using a hashing-function such as `sha256`. This cannot be reversed - in other words, once content is hashed, its original content cannot be recovered. `Sha256` is, currently said, 100% secure.
+Unlike encrypt, **digest** will *hash* content by using a hashing-function such as `sha256`. This cannot be reversed - in other words, once content is hashed, its original content cannot be recovered. 
+
 Hashing can be applied to disguise original data such as user_guids, photo_guids etc. where we only need to know that values are unique. A given user_guid, for example, will always result in the same hash. Different user_guids will always have different hashes.
+
 The `salt` and `password` used when Hashing increase security, as they will add another layer of security (simply appended to original string), which prevents compromised hashes [from other user's mistakes](https://security.stackexchange.com/questions/51959/why-are-salted-hashes-more-secure-for-password-storage). They are simply two unique strings (that shouldn't be shared).
+
 The Digest/Hash Function is useful when sharing data with external partners, where it is not important to know the original user-id.
 
 ## Which one should I chose?  
-If you are unsure, use encryption, as it combines advantages of both and still gives you the ability to decrypt content in specific cases. If you're sharing data online publicly, hashing is the more secure alternative, as it is nearly impossible to un-hash content (at least not within a reasonable amount of time) - even if someone managed to get the `salt` and `pw` you used. Sometimes, it is not necessary to encrypt/hash all data. For example, if a tag is used by hundreds or thousands of users in a single shared dataset, it seems possible to leave it in clear text. On the other hand, if a specific tag is only by a single user, it is recommended to hash or encrypt this tag. A researcher may still be able to use it to count unique terms, but the term itself cannot be used anymore to discover the original user.
+If you are unsure, use encryption, as it combines advantages of both and still gives you the ability to decrypt content in specific cases. If you're sharing data online publicly, hashing is the more secure alternative, as it is nearly impossible to un-hash content (at least not within a reasonable amount of time) - even if someone managed to get the `salt` and `pw` you used.
+
+Sometimes, it is not necessary to encrypt/hash all data. For example, if a tag is used by hundreds or thousands of users in a single shared dataset, it seems possible to leave it in clear text. On the other hand, if a specific tag is only by a single user, it is recommended to hash or encrypt this tag. A researcher may still be able to use it to count unique terms, but the term itself cannot be used anymore to discover the original user.
 
 ## Example Usage
 The following code will export a CSV to local drive E: and encode/hash user_guids and photo_guids:

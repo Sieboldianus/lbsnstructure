@@ -1,3 +1,6 @@
 [submodule "examples/python"]
 	path = examples/python
 	url = ../../lbsn/lbsnstructure-python.git
+[submodule "examples/php"]
+	path = examples/php
+	url = git@gitlab.vgiscience.de:lbsn/lbsnstructure-php.git
