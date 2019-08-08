@@ -4,6 +4,12 @@
 
 A common language independent and cross-network social-media datascheme.
 
+**Important:** In order to encapsulate and share code across different package managers (pypi, composer), we make use of _git_ _submodules_. To clone this super-repository, including all its example-folders, use:
+
+```bash
+git clone --recursive
+```
+
 ## Description
 
 This is the first version of a common, standardized conceptual data model for analyzing, comparing and relating information of different location based social networks (LBSN). With the structure, we focus on three important directions that are of importance to the whole Priority Program:
