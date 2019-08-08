@@ -45,6 +45,15 @@ This file can be imported to your tool (for python, `from lbsnstructure.lbsnstru
 
 Have a look at the [python compiled example repository](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python) and the [Jupyter Notebook](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python/blob/master/StructureTest.ipynb) for a brief guide on using the structure in Python.
 
+## Semantic release
+
+We make use of automatic versioning using semantic-release workflow.
+To auto-increase version based on commits, use:
+
+```bash
+semantic-release publish
+```
+
 ## Changelog
 
 see [CHANGELOG](CHANGELOG)
