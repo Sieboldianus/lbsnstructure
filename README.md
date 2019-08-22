@@ -31,6 +31,7 @@ To compile ProtoBuffers structure in your language, get the [current release for
 ```bash
 protoc --python_out=examples/python lbsnstructure/lbsnstructure.proto
 protoc --python_out=examples/python google/protobuf/timestamp.proto
+protoc --python_out=examples/python google/protobuf/duration.proto
 ```
 
 Replace `--python` with your language of choice, e.g. for php:  
@@ -38,6 +39,7 @@ Replace `--python` with your language of choice, e.g. for php:
 ```bash
 protoc --php_out=examples/php/ lbsnstructure/lbsnstructure.proto
 protoc --php_out=examples/php/ google/protobuf/timestamp.proto
+protoc --php_out=examples/php/ google/protobuf/duration.proto
 ```
 
 If successful, you will see a file generated in output directory in your language, e.g. `lbsnstructure/lbsnstructure_pb2.py` ([Note](https://developers.google.com/protocol-buffers/docs/reference/python-generated) that currently both proto2 and proto3 append "_pb2.py" to generated filenames). 
@@ -47,7 +49,7 @@ This file can be imported to your tool.
 E.g. for python:
 
 ```python
-from lbsnstructure.lbsnstructure_pb2.py import lbsnOrigin, CompositeKey, lbsnCountry
+from lbsnstructure.lbsnstructure_pb2.py import Origin, CompositeKey, Country
 ```
 
 Have a look at the [python compiled example repository](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python) and the [Jupyter Notebook](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python/blob/master/StructureTest.ipynb) for a brief guide on using the structure in Python.

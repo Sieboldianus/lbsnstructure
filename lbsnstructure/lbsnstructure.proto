@@ -5,6 +5,7 @@ package lbsn.structure;
 
 // import structure dependencies
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
 
 /*
  * Describes the Common Data Structure LBSN Concept
@@ -259,7 +260,6 @@ message Relationship {
 
 message Language {
   /*
-   * Primary Key. A unique identifier of the object.
    * A BCP 47 language identifier corresponding to the (machine-detected language) of the Post body-text, empty/whitespace if no language could be detected, NULL if not specified.
    */
   string language_short = 1;
@@ -268,4 +268,35 @@ message Language {
    */
    string name = 2;
    string language_name_de = 3;
+}
+
+message Event {
+  /*
+   * Primary Key. A unique identifier of the object.
+   * Events are temporal reference points with a start and end date
+   * Start and end date may coincide
+   */
+  CompositeKey pkey = 1;  
+  /*
+   * Optional Attributes
+   */
+   string name = 2; //Name of the event
+   google.protobuf.Timestamp event_date = 3; //Date and time of the event
+   google.protobuf.Timestamp event_date_start = 4; //Start date of the event
+   google.protobuf.Timestamp event_date_end = 5; //End date of the event
+   google.protobuf.Duration duration = 6; //Duration of the event in seconds
+   string event_latlng = 7; //Location of the event (WKT Point)
+   string event_area = 8; //Location of the event (WKT Polygon)
+   CompositeKey place_pkey = 9; //Place reference
+   CompositeKey city_pkey = 10; //City reference
+   CompositeKey country_pkey = 11; //Country reference
+   CompositeKey user_pkey = 12; //User reference (e.g. the owner of the event)
+   string event_description = 13;
+   string event_website = 14; //A link provided by users for this place (e.g. webpage for restaurant, park-management etc.)
+   string event_type = 15; //Any string to describe the type of event
+   int64 event_share_count = 16; //Number of times this Event has been shared by other users.
+   int64 event_like_count = 17; //Number of times this Event has been liked/highlighted by other users.
+   int64 event_comment_count  = 18;
+   int64 event_views_count  = 19;
+   int64 event_engage_count = 20; //Number of users who participate in this Event.
 }
