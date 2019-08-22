@@ -170,6 +170,7 @@ message Place {
     string zip_code = 13; //Zip_code publicly provided for some places on LBSN.
     int64 checkin_count = 14;
     int64 like_count = 15;
+    repeated string parent_places = 16; //Places can be hierarchically structured, list any up-hierarchy places parent to this one as guids here
 }
 
 message City {
