@@ -172,6 +172,7 @@ message Place {
     int64 checkin_count = 14;
     int64 like_count = 15;
     repeated string parent_places = 16; //Places can be hierarchically structured, list any up-hierarchy places parent to this one as guids here
+    map<string, string> attributes = 17; //Any additional place attributes (key-value pair). Example: category => park; owner => "Katherine Dunn".';
 }
 
 message City {
