@@ -1,6 +1,6 @@
 [submodule "examples/python"]
 	path = examples/python
-	url = ../../lbsn/lbsnstructure-python.git
+	url = ../../lbsn/structure/python.git
 [submodule "examples/php"]
 	path = examples/php
-	url = ../../lbsn/lbsnstructure-php.git
+	url = ../../lbsn/structure/php.git
