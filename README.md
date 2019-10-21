@@ -1,4 +1,4 @@
-![php](https://lbsn.vgiscience.org/concept/version.svg) ![pipeline](https://lbsn.vgiscience.org/concept/pipeline.svg) ![php](https://lbsn.vgiscience.org/concept/php-version.svg) ![python](https://lbsn.vgiscience.org/concept/python-version.svg)
+![php](https://lbsn.vgiscience.org/structure/protobuf/version.svg) ![pipeline](https://lbsn.vgiscience.org/structure/protobuf/pipeline.svg) ![php](https://lbsn.vgiscience.org/structure/protobuf/php-version.svg) ![python](https://lbsn.vgiscience.org/structure/protobuf/python-version.svg)
 
 ## LBSNSTRUCTURE
 
@@ -22,7 +22,7 @@ We decided to describe our common lbsn structure with the platform and language 
 
 ## Docs
 
-The full documentation is available at [lbsn.vgiscience.org/concept/docs/](https://lbsn.vgiscience.org/concept/docs/).
+The full documentation is available at [lbsn.vgiscience.org/structure/protobuf/docs/](https://lbsn.vgiscience.org/structure/protobuf/docs/).
 
 ## Quick Start
 
