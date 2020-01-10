@@ -1,0 +1,308 @@
+/*
+ * Topical Facet of the Common LBSN Data Structure
+ *
+ * **What?**
+ *
+ * The difference between the thematic and social facet is in the relation to the actor.
+ * Thematic attributes include immediate situational aspects that affect reactions from an
+ * actor in a particular situation (e.g. sentiments, feelings, emotions, but also co-occurring
+ * aspects in the surrounding of an actor or any other attributes of the reaction environment).
+ * Therefore, unlike social attributes, thematic attributes change frequently from one
+ * reaction to another. Possible partitions include but are not limited to emotional states of
+ * the actor (e.g. positive, neutral, negative), as inferred from emoticons or based on sentiment
+ * analysis (Hauthal 2013), or the stance of different actors to events as inferred from
+ * semantics such as titles, comments or descriptions etc. (Zeng et al. 2016). Keywords such
+ * as hashtags, for example, may indicate what aspects of an event were perceived as being
+ * of particular importance (Towne et al. 2016), or refer to individual event consequences or
+ * actions people have undertaken or plan to undertake (Gao et al. 2014).
+ *
+ * Overview of LBSN Structures that are organized under the Topical Facet:
+ *
+ * | Object | Description |
+ * | ----- | ----------- |
+ * | [Post](#lbsn.structure.Post) | An single post on a location based social network (LBSN) providing original (new) content |
+ * | [PostReaction](#lbsn.structure.PostReaction) | A reaction on a location based social network (LBSN) such as like, quote, share etc. |
+ *
+ * Note that these assignments are not clear-cut - e.g. they're aspects of a
+ * Post or PostReactions that may as well belong to one of the other facets.
+ */
+syntax = "proto3";
+
+// global package namespace
+package lbsn.structure;
+
+// import structure dependencies
+import "google/protobuf/timestamp.proto";
+import "social.proto";
+
+/*
+ * An original post on a location based social network (LBSN)
+ *
+ * Note that:
+ * 
+ * - all LBSM posts are reactions,
+ * - all reactions have a referent event
+ * - referent events may consist of complex motivational patterns and are
+ * therefore often difficult to identify
+ *
+ * See also the [Wikipedia](https://en.wikipedia.org/wiki/Posting_style) entry.
+ */
+message Post {
+  /*
+   * Primary Key. A unique identifier of the object across networks.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Location of the post, either chosen by the user, automatically
+   * attached to the post by input device (GPS) or complemented
+   * by algorithms of the service (e.g. Twitter post geocoding, as derived
+   * from the post_body text. If lat/lng coordinates are not submitted,
+   * this field can be substituded with location information from place,
+   * city or country table. In those cases, post_geoaccuracy indicates
+   * lower level geoaccuracy, e.g.: 'place', 'city', or 'country'.
+   * Formatting: WKT (Well-Known-Text String)
+   */
+  string post_latlng = 2;
+  /*
+   * Reference to a place this post is associated with.
+   */
+  CompositeKey place_pkey = 3;
+  /*
+   * Reference to a city this post is associated with.
+   */
+  CompositeKey city_pkey = 4;
+  /*
+   * Reference to a country this post is associated with.
+   */
+  CompositeKey country_pkey = 5;
+  /*
+   * Reference to the user who created the post.
+   */
+  CompositeKey user_pkey = 6;
+  /*
+   * The time when the post content was shared online, e.g. on
+   * Flickr, the publish_date refers to the time of photo
+   * sharing (upload-time)
+   */
+  google.protobuf.Timestamp publish_date = 7;
+  /*
+   * The textual content of the post, e.g. the description of the
+   * photo on Flickr, the tweet text on Twitter etc.
+   */
+  string post_body = 8;
+  /*
+   * Spatial information can have different levels of granularity
+   * and users can often choose which locational accuracy they want use.
+   */
+  enum Geoaccuracy {
+    UNKNOWN = 0;
+    LATLNG = 1; // A single coordinate
+    PLACE = 2; // A place reference
+    CITY = 3; // A city reference
+    COUNTRY = 4;
+  }
+  /*
+   * This field specifies the highest location accuracy available for this post,
+   * either 'latlng', 'place', 'city' or 'country'.
+   */
+   Geoaccuracy geoaccuracy = 9;
+  /* A list of referenced user_guids that are
+   * mentioned in the post_body, post_title or
+   * other parts of a post. In postgres mapping, these are not direct
+   * references that are checked, but mere lists of strings (array),
+   * since Foreign Key Arrays are not supported.
+   */
+  repeated CompositeKey user_mentions = 10;
+  /*
+   * List of hashtags explicitly assigned to the post, either
+   * inside post_body (e.g. with hash-character (#), or in a separate field
+   * such as "tags" on Flickr). Note that Flickr users may still use the hash
+   * symbol (#). Therefore, hashtag and tag are synonyms for users explicitly
+   * highlighting single terms inside the larger context of the post.
+   */
+  repeated string hashtags = 11;
+  /*
+   * List of Emoji Symbols, either extracted from post_body or provided
+   * in a separate field. Duplicates allowed. For possible symbols, see:
+   * unicode.org/emoji/charts/full-emoji-list.html
+   */
+  repeated string emoji = 12;
+  /*
+   * Number of times this Post has been liked
+   * by other users.
+   */
+  int64 like_count = 13;
+  /*
+   * Number of times this Post has been commented
+   * by other users, e.g. count of Reply-Tweets on Twitter,
+   * count of photo comments on Flickr etc.
+   */
+  int64 comment_count = 14;
+  /*
+   * Number of times this Post has been viewed
+   * by other users.
+   */
+  int64 views_count = 15;
+  /*
+   * The title of the post. This is sometimes available in a separate field.
+   * E.g. on Flickr, a photo can have both a title and a description. On
+   * Instgram, however, only the post_body is available.
+   */
+  string post_title = 16;
+  /*
+   * The time when the post content was originally created. Most often,
+   * this matched the publish_date (e.g. on Twitter or Instagram). On
+   * Flickr, the create_date refers to the photo's timestamp, and the
+   * publish_date refers to the time of photo sharing (upload-time)
+   */
+  google.protobuf.Timestamp create_date = 17;
+  /*
+   * Url to the public thumbnail of this post. usually this will only
+   * be available for posts of type IMAGE.
+   */
+  string thumbnail_url = 18;
+  /*
+   * Url to the original post.
+   */
+  string post_url = 19;
+  /*
+   * Type of post
+   */
+  enum Type {
+    TEXT = 0;  // Default post type is text (e.g. a tweet on Twitter)
+    IMAGE = 1; // Post of type "image" (e.g. a photo on Flickr)
+    VIDEO = 2; // Post of type "video" (e.g. a video on Youtube)
+    OTHER = 3; // Post of specific type not yet added to the specification
+  }
+  /*
+   * Type of post, e.g. text, image, video or other.
+   * If possible, choose the more specific type
+   * (e.g. VIDEO over TEXT even if text is present in a video-post).
+   */
+  Type post_type = 20;
+  /*
+   * Any automatic filters applied to post?
+   * (e.g. photo filters such as Amarao;
+   * Automatic Translations of Text).
+   */
+  string post_filter = 21;
+  /*
+   * Number of times this Post has been quoted by other users,
+   * e.g. count of Quote-Tweets on Twitter.
+   */
+  int64 quote_count = 22;
+  /*
+   * Number of times this Post has been shared
+   * by other users, e.g. count of Retweets on Twitter.
+   */
+  int64 share_count = 23;
+  /*
+   * Type of input device used by the user to post,
+   * for a list see Twitter, e.g. 'Web', 'IPhone',
+   * 'Android' etc. Recommendation: should be oriented
+   * at Twitter's large list of source types. For camera
+   * models, have a look at Flickr.
+   */
+  string input_source = 24;
+  /*
+   * Language of the post (A BCP 47 language identifier
+   * corresponding to the (machine-detected) language of the Post body-text,
+   * empty if no language could be detected, NULL if not specified.
+   */
+  Language post_language = 25;
+  /* An integer for specifying the of the post
+   * which can be optionally chosen by users on
+   * some services (e.g. Flickr). For example:
+   * All Rights Reserved = 0. Numbers can be
+   * oriented at Flickr's list of content licenses:
+   * https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
+   */
+  int32 content_license = 26;
+}
+
+/*
+ * A reaction on a location based social network (LBSN).
+ *
+ * Note that posts are also reactions. However, a post reaction
+ * is a post with a reduced structure suitable for simple expressions
+ * such as likes that don't have all post attributes.
+ *
+ * The difference between an original post and a post reaction is not clear cut.
+ * In general, original posts provide original (new) content that is
+ * compiled by the posting user/author. Post reactions merely add information,
+ * e.g. by quoting an original post, or provide an expression or stance towards
+ * a post (or another reaction), e.g. a like or 'star'.
+ *
+ * Post reactions are suitable for mapping the spread of information,
+ * because it contains two attributes for referencing the original post
+ * that motivated the reaction (referencedPost)
+ * or a reference to another reaction that was reacted
+ * upon (referencedPostreaction)
+ *
+ * Example reaction_types:  
+ *
+ * - share  
+ * - comment/reply  
+ * - quote  
+ * - like/star/highlight  
+ * - emoji etc.  
+ */
+message PostReaction {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Reference to the user who reacted.
+   */
+  CompositeKey user_pkey = 2;
+  /*
+   * A reference to the original post to which this reaction refers to
+   * (e.g. for a reaction of type REPLY, reference of the original post_pkey)
+   */
+  CompositeKey referencedPost_pkey = 3;
+  /*
+   * A reference to another reaction (e.g. if this reaction is a "like"
+   * of another reaction, reference original postreaction_pkey here)
+   */
+  CompositeKey referencedPostreaction_pkey = 4;
+  /*
+   * Location of the reaction (point), either chosen by the user, automatically
+   * attached to the reaction by input device (GPS) or complemented
+   * by algorithms of the service.
+   */
+  string reaction_latlng = 5;
+  /*
+   * Possible type of reactions.
+   */
+  enum ReactionType {
+    UNKNOWN = 0;
+    SHARE = 1;   // A sharing reaction usually does not add much content
+    COMMENT = 2; // A comment reaction adds additional content
+    QUOTE = 3;   // A quote reaction adds some additional content
+    LIKE = 4;    // A like reaction is a basic form of appreciation
+    EMOJI = 5;   // An emoji usually encodes different expressions of feelings
+    OTHER = 6;
+  }
+  /*
+   * Type of reaction. Choose the more specific type if multiple apply. Merge
+   * similar types: Retweet → Share; Reply → Comment; Star → Like
+   */
+  ReactionType reaction_type = 6;
+  /*
+   * Time and Date of the reaction.
+   */
+  google.protobuf.Timestamp reaction_date = 7;
+  /*
+   * Content of the reaction (e.g. the text).
+   */
+  string reaction_content = 8;
+  /*
+   * Number of times this reaction has been liked by others.
+   */
+  int64 reaction_like_count = 9;
+  /* A list of referenced user_guids that are
+   * mentioned in the reaction.
+   */
+  repeated CompositeKey user_mentions_pkey = 10;
+}

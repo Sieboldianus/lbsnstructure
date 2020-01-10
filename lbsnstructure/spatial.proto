@@ -1,0 +1,188 @@
+/*
+ * Spatial Facet of the Common LBSN Data Structure
+ *
+ * **Where?**
+ *
+ * Both time and space are referenced from many objects in LBSN such as the
+ * location of a post, the date when a user joins a Social Network or when a
+ * place is added to a map. Beyond these references, independent spatial objects
+ * of LBSN Networks are frequently found at different levels of granularity.
+ * In the base LBSN Structure we've considered objects on 3 levels of spatial
+ * granularity by default, Place, City and Country, which can be further
+ * subdivided based on personal needs.
+ *
+ * Overview of LBSN Structures that are organized under the Spatial Facet:
+ *
+ * | Object | Description |
+ * | ----- | ----------- |
+ * | [Place](#lbsn.structure.Place) | A particular (named) place on a location based social network (LBSN). |
+ * | [City](#lbsn.structure.City) | A city on a location based social network (LBSN). |
+ * | [Country](#lbsn.structure.Country) | A country on a location based social network (LBSN). |
+ */
+syntax = "proto3";
+
+// global package namespace
+package lbsn.structure;
+
+// import structure dependencies
+import "social.proto";
+
+
+/*
+ * A place on a location based social network (LBSN).
+ *
+ * Places are spatial named references of interests such as POIs,
+ * often added by users themselves and around which discussions may evolve.
+ */
+message Place {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Name of the place in English
+   */
+  string name = 2;
+  /*
+   * Alternative names (e.g. in other languages; synonyms).
+   */
+  repeated string name_alternatives = 3;
+  /*
+   * Number of total posts for this place.
+   */
+  int64 post_count = 4;
+  /*
+   * URL to the public place-page  representation on the respective LBSN
+   */
+  string url = 5;
+  /*
+   * WKT Point (centroid of geom_area)
+   */
+  string geom_center = 6;
+  /*
+   * WKT Polygon (boundary of the city)
+   */
+  string geom_area = 7;
+  /*
+   * Reference to the city this city belongs to.
+   */
+  CompositeKey city_pkey = 8;
+  /*
+   * Public description of the place.
+   */
+  string place_description = 9;
+  /*
+   * A link provided by users for this place (e.g.
+   * webpage for restaurant, park-management etc.)
+   */
+  string place_website = 10;
+  /*
+   * Phone number publicly provided for some places on LBSN.
+   */
+  string place_phone = 11;
+  /*
+   * Address publicly provided for some places on LBSN.
+   */
+  string address = 12;
+  /*
+   * Zip_code publicly provided for some places on LBSN.
+   */
+  string zip_code = 13;
+  /*
+   * Total number of user checkins for this place
+   * (e.g. checkin functionality on Foursquare or Facebook)
+   */
+  int64 checkin_count = 14;
+  /*
+   * Total number of times this places has been liked.
+   */
+  int64 like_count = 15;
+  /*
+   * Places can be hierarchically structured, list any up-hierarchy
+   * places parent to this one as guids here
+   */
+  repeated string parent_places = 16;
+  /*
+   * Any additional place attributes (key-value pair).
+   * Example: category → park; owner → "Katherine Dunn".
+   */
+  map<string, string> attributes = 17;
+}
+
+/*
+ * A city on a location based social network (LBSN).
+ *
+ * Cities are hierarchical above places, sometimes with specific
+ * public page where a City's official representation is presented,
+ * sometimes they're automatically added to structure place information into
+ * common groups.
+ */
+message City {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Name of the city in English.
+   */
+  string name = 2;
+  /*
+   * Alternative names (e.g. in other languages; synonyms).
+   */
+  repeated string name_alternatives = 3;
+  /*
+   * Optionally add a subtype of City (e.g. "Neighborhood", "Admin", etc.)
+   */
+  string sub_type = 4;
+  /*
+   * Url to the public web address of the city
+   */
+  string url = 5;
+  /*
+   * WKT Point (centroid of geom_area)
+   */
+  string geom_center = 6;
+  /*
+   * WKT Polygon (boundary of the city)
+   */
+  string geom_area = 7;
+  /*
+   * Reference to the country this city belongs to.
+   */
+  CompositeKey country_pkey = 8;
+}
+
+/*
+ * A country on a location based social network (LBSN).
+ *
+ * Cities are hierarchical above places, sometimes with specific
+ * public page where a Country's official representation is presented,
+ * sometimes they're automatically added to structure city and place
+ * information into common groups.
+ */
+message Country {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Name of the country in English.
+   */
+  string name = 2;
+  /*
+   * Alternative names (e.g. in other languages; synonyms).
+   */
+  repeated string name_alternatives = 3;
+  /*
+   * Url to the public web address of the country
+   */
+  string url = 4;
+  /*
+   * WKT Point (centroid of geom_area)
+   */
+  string geom_center = 5;
+  /*
+   * WKT Polygon (boundary of the country)
+   */
+  string geom_area = 6;
+}

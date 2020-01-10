@@ -1,0 +1,268 @@
+/*
+ * Social Facet of the Common LBSN Data Structure
+ *
+ * **Who?**
+ *
+ * The social facet describes an actor’s identity, encompassing their
+ * wider affiliation with social groups or cultures. The underlying assumption
+ * is that referent events involve or affect different groups of people
+ * differently. In other words, whether someone feels affected or unaffected
+ * by an event, is considered a participant, observer or witness or
+ * takes a positive or negative stance towards an event depends,
+ * to some degree, on the social background of this individual. This may
+ * encompass complex aspects including political orientation, beliefs, values,
+ * norms and preferences, which express a continuum of people’s relationships
+ * towards an event that (often unconsciously) affect reactions.
+ *
+ * Because of the complexity involved, these social relationships between
+ * reactions and events are not typically directly found in LBSM data,
+ * but can be inferred based on (e.g.):  
+ *
+ * * user origin (USA, Canada or Australia),  
+ * * language,  
+ * * gender,  
+ * * age,  
+ * * occupation or  
+ * * differentiation between local population and  
+ *   visitors/tourists  
+ * * affiliation with groups  
+ * * etc.  
+ *
+ * Overview of LBSN Structures that are organized under the Social Facet:
+ *
+ * | Object | Description |
+ * | ----- | ----------- |
+ * | [Origin](#lbsn.structure.Origin) | A Location Based Social Network consisting of a large group of people |
+ * | [CompositeKey](#lbsn.structure.CompositeKey) | A Composite Key used to reference unique objects across different LBSN |
+ * | [User](#lbsn.structure.User) | A single user (e.g. a profile or an account) on a location based social network (LBSN) |
+ * | [UserGroup](#lbsn.structure.UserGroup) | A single group of users on a LBSN |
+ * | [Language](#lbsn.structure.Language) | A common language used on LBSN, relating to a larger group of people sharing the same language |
+ *
+ * Note that these assignments are not clear-cut - e.g. they're aspects of a User that may as well belong to one of the other facets.
+ */
+syntax = "proto3";
+
+// global package namespace
+package lbsn.structure;
+
+// import structure dependencies
+import "google/protobuf/timestamp.proto";
+
+/*
+ * An Origin is a reference to a unique Location Based Social Network (LBSN).
+ * We've added some of the most popular social media networks to the list,
+ * which can be extended further.
+ *
+ * An Origin is the base unit of the LBSN structure and it is organized under
+ * the Social Facet because Social Media Networks are formed by large groups of
+ * people (the social part) around some common interest
+ * (e.g. Flickr or Instagram for photography,
+ * Twitter for opinion formation and exchange of political perspectives).
+ */
+message Origin {
+  /*
+   * Predefined values for OriginID. Default origin id is LBSN (0)
+   */
+  enum OriginID {
+    LBSN = 0; // default
+    INSTAGRAM = 1;
+    FLICKR = 2;
+    TWITTER = 3;
+    FACEBOOK = 4;
+    FOURSQUARE = 5;
+  }
+  /*
+   * A unique Origin ID as a reference for the LBSN
+   */
+  OriginID origin_id = 1;
+  /*
+   * The name of Origin, e.g. the service's name
+   */
+  string name = 2;
+}
+
+/*
+ * Except for language, a Composite Keys are used for all objects
+ * in the structure, which allow creating Composite References consisting
+ * of an Origin (a reference to a Location based Social networkLBSN) and
+ * the original or derived (hashed) (gu)id for each object on the respective
+ * LBSN.
+ */
+ message CompositeKey {
+  Origin origin = 1; // e.g. 1= Instagram, 2= Flickr, 3=Twitter
+  string id = 2;     // the services original unique (gu)id for this object
+}
+
+/*
+ * A user (e.g. a profile or an account) on a location based social network (LBSN)
+ *
+ * Note that it is often challenging to determine whether a social media
+ * profiles represent fictitious or real persons, bots or even ‘cyborgs’
+ * (You et al. 2012). Therefore, a user may also be considered as
+ * an ‘avatar’ representing an organization or a group of individuals.
+ *
+ * See also the [Wikipedia](https://en.wikipedia.org/wiki/User_(computing))
+ * entry.
+ */
+message User {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Name of the User.
+   * Can be an alias, email or real name etc.
+   */
+  string user_name = 2;
+  /*
+   * Full name of the User.
+   * Can be an alias, email or real name etc.
+   */
+  string user_fullname = 3;
+  /*
+   * Number of other users this user follows.
+   */
+  int64 follows = 4;
+  /*
+   * Number of times this user is followed by others.
+   */
+  int64 followed = 5;
+  /*
+   * The number of public groups or communities this user is a member of
+   */
+  int64 group_count = 6;
+  /*
+   * A short user biography or description.
+   */
+  string biography = 7;
+  /*
+   * Number of posts this user has created.
+   */
+  int64 post_count = 8;
+  /*
+   * Full URL to public user profile.
+   */
+  string url = 9;
+  /*
+   * Whether the user has chosen to remain private
+   * (e.g. profile not publicly visible).
+   */
+  bool is_private = 10;
+  /*
+   * A user that is not available can mean several things.
+   * When the user's account was deactivated or when
+   * users explicitly chose to delete their account,
+   * but keep public data, this field would be False.
+   */
+  bool is_available = 11;
+  /*
+   * A BCP 47 language identifier corresponding to the
+   * machine-detected or user selected language.
+   */
+  Language user_language = 12;
+  /*
+   * The user-defined location for this profile.
+   * Not necessarily a location, nor machine-parseable
+   * (e.g. a user can choose 'world' as his/her location,
+   * or any other string)
+   */
+  string user_location = 13;
+  /*
+   * Coordinates (Point: lat/lng)
+   * of the user-location, either provided by user
+   * or geocoded from the user's location.
+   */
+  string user_location_geom = 14;
+  /*
+   * The number of Posts this user has liked in total.
+   */
+  int64 liked_count = 15;
+  /*
+   * UTC datetime when the user was first active
+   * (e.g. time of account creation, or derived from first post_publish_date).
+   */
+  google.protobuf.Timestamp active_since = 16;
+  /*
+   * URL pointing to the public profile image of the user.
+   */
+  string profile_image_url = 17;
+  /*
+   * Time zone ID that can be specified by the user.
+   */
+  string user_timezone = 18;
+  /*
+   * Optional difference in hours from Coordinated Universal Time (UTC)
+   * for a particular user defined place.
+   */
+  sint32 user_utc_offset = 19;
+  /*
+   * The list of groups this user has joined/ is a member of
+   * (active participation interest).
+   */
+  repeated string user_groups_member = 20;
+  /*
+   * The list of groups this user follows (viewing interest).
+   */
+  repeated string user_groups_follows = 21;
+}
+
+/*
+ * A user group on a location based social network (LBSN). Central
+ * to user groups is a common interest.
+ *
+ * User groups are organized differently on different LBSN, sometimes
+ * they're centrally organized by the organization, or by a single user,
+ * at other times, they're self-organized, sometimes with specific limitations
+ * to join etc. For example, on Facebook user griups are self-organized
+ * on pages, on Twitter, 'Lists' may be used by single users to produce
+ * a curated list of Twitter accounts.
+ */
+message UserGroup {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  CompositeKey pkey = 1;
+  /*
+   * Name of the UserGroup
+   */
+  string usergroup_name = 2;
+  /*
+   * Description of the UserGroup
+   */
+  string usergroup_description = 3;
+  /*
+   * Total member count of this UserGroup
+   */
+  int64 member_count = 4;
+  /*
+   * Time of creation for this UserGroup
+   */
+  google.protobuf.Timestamp usergroup_createdate = 5;
+  /*
+   * A Reference to the owner of this UserGroup.
+   */
+  CompositeKey user_owner_pkey = 6;
+}
+
+/*
+ * A language identifier on LBSN.
+ *
+ */
+message Language {
+  /*
+   * A BCP 47 language identifier corresponding to the
+   * language of a Post or User (e.g.).
+   * Languages are organized under the Social Facet because
+   * they're usually references to cultures,
+   * which connect many people.
+   */
+  string language_short = 1;
+  /*
+   * Name of the language (English)
+   */
+  string name = 2;
+  /*
+   * Name of the language (German)
+   */
+  string language_name_de = 3;
+}

@@ -1,0 +1,109 @@
+/*
+ * Describes additional relationships of the LBSN Data Structure
+ *
+ * **Interlinkage and the spread of information**
+ *
+ * Beyond direct references between different objects of the LBSN structure,
+ * there exist other relationships, such as many-to-many relationships,
+ * that are explicitly considered here.
+ *
+ * Relationships can link entities, e.g. between two different
+ * Origins (e.g. different services) or between implicit social media
+ * and external sources (explicit VGI, e.g. Wikipedia, OSM).
+ *
+ * A specific example for a relationship is the spread of information,
+ * an important characteristic of LBSM that occurs when reactions become the
+ * referent event for other reactions.
+ *
+ * The following naming conventions are used:
+ *
+ * - Names of relationships within a single Origin start with an underscore
+ * ('_'), e.g. '_user_mentions_user'
+ * - Names of Cross-Origin relationships start with two underscores
+ *   ('__'), e.g. '__users_shareidentity', '__posts_shareidentity'
+ * - Names of relationships that link social media and external
+ *   sources start with three underscores ('___'),
+ *   e.g. between a Social Media Network and OpenStreetMap
+ */
+syntax = "proto3";
+
+// global package namespace
+package lbsn.structure;
+
+// import structure dependencies
+import "social.proto";
+
+/*
+ * Many-to-many relationships that
+ * could otherwise not be implemented in the relational lbsn structure.
+ * Relationships can also link entities between two different origin_id's
+ * (e.g. different services).
+ */
+message RelationshipKey {
+  CompositeKey relation_to = 1;   // Relation from reference
+  CompositeKey relation_from = 2; // Relation ro reference
+}
+
+/*
+ * LBSN Relationships map one-to-many and many-to-many relationships.
+ */
+message Relationship {
+  /*
+   * Primary Key. A unique identifier of the object.
+   */
+  RelationshipKey pkey = 1;
+  /*
+   * Available types of LBSN relationship
+   */
+  enum RelationshipType {
+    UNKNOWN = 0;
+    /*
+     * A friend of a user (i.e. this user y is the friend of user
+     * x). Being a friend is a mutual relationship.
+     */
+    isFRIEND = 1;
+    /*
+     * A user that is connected to someone, e.g. a follower of user x
+     * (i.e. this user y is the follower of user x). Being connected to
+     * someone (e.g. being a follower) is not a mutual relationship.
+     */
+    isCONNECTED = 2;
+    /*
+     * A user that has multiple representations on the same service
+     * or is linked across services.
+     */
+    isEQUAL = 3;
+    /*
+     * A user x that is a member of the group y.
+     */
+    inGROUP = 4;
+    /*
+     * A user x that follows the group y.
+     */
+    followsGROUP = 5;
+    /*
+     * A user x that is a member of the community y.
+     */
+    inCOMMUNITY = 6;
+    /*
+     * A user x that mentions user y.
+     */
+    MENTIONS_USER = 7;
+    /*
+     * A post x that is tagged with term y.
+     */
+    hasHASHTAG = 8;
+    /*
+     * A post x contains emoji y.
+     */
+    hasEMOJI = 9;
+    /*
+     * Any other relation type.
+     */
+    OTHER = 10;
+  }
+  /*
+   * Type of the relationship
+   */
+  RelationshipType relationship_type = 2;
+}
