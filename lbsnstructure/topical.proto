@@ -39,7 +39,7 @@ import "social.proto";
  * An original post on a location based social network (LBSN)
  *
  * Note that:
- * 
+ *
  * - all LBSM posts are reactions,
  * - all reactions have a referent event
  * - referent events may consist of complex motivational patterns and are
@@ -84,7 +84,7 @@ message Post {
    * Flickr, the publish_date refers to the time of photo
    * sharing (upload-time)
    */
-  google.protobuf.Timestamp publish_date = 7;
+  google.protobuf.Timestamp post_publish_date = 7;
   /*
    * The textual content of the post, e.g. the description of the
    * photo on Flickr, the tweet text on Twitter etc.
@@ -94,7 +94,7 @@ message Post {
    * Spatial information can have different levels of granularity
    * and users can often choose which locational accuracy they want use.
    */
-  enum Geoaccuracy {
+  enum PostGeoaccuracy {
     UNKNOWN = 0;
     LATLNG = 1; // A single coordinate
     PLACE = 2; // A place reference
@@ -105,14 +105,14 @@ message Post {
    * This field specifies the highest location accuracy available for this post,
    * either 'latlng', 'place', 'city' or 'country'.
    */
-   Geoaccuracy geoaccuracy = 9;
+   PostGeoaccuracy post_geoaccuracy = 9;
   /* A list of referenced user_guids that are
    * mentioned in the post_body, post_title or
    * other parts of a post. In postgres mapping, these are not direct
    * references that are checked, but mere lists of strings (array),
    * since Foreign Key Arrays are not supported.
    */
-  repeated CompositeKey user_mentions = 10;
+  repeated CompositeKey user_mentions_pkey = 10;
   /*
    * List of hashtags explicitly assigned to the post, either
    * inside post_body (e.g. with hash-character (#), or in a separate field
@@ -131,18 +131,18 @@ message Post {
    * Number of times this Post has been liked
    * by other users.
    */
-  int64 like_count = 13;
+  int64 post_like_count = 13;
   /*
    * Number of times this Post has been commented
    * by other users, e.g. count of Reply-Tweets on Twitter,
    * count of photo comments on Flickr etc.
    */
-  int64 comment_count = 14;
+  int64 post_comment_count = 14;
   /*
    * Number of times this Post has been viewed
    * by other users.
    */
-  int64 views_count = 15;
+  int64 post_views_count = 15;
   /*
    * The title of the post. This is sometimes available in a separate field.
    * E.g. on Flickr, a photo can have both a title and a description. On
@@ -155,12 +155,12 @@ message Post {
    * Flickr, the create_date refers to the photo's timestamp, and the
    * publish_date refers to the time of photo sharing (upload-time)
    */
-  google.protobuf.Timestamp create_date = 17;
+  google.protobuf.Timestamp post_create_date = 17;
   /*
    * Url to the public thumbnail of this post. usually this will only
    * be available for posts of type IMAGE.
    */
-  string thumbnail_url = 18;
+  string post_thumbnail_url = 18;
   /*
    * Url to the original post.
    */
@@ -168,7 +168,7 @@ message Post {
   /*
    * Type of post
    */
-  enum Type {
+  enum PostType {
     TEXT = 0;  // Default post type is text (e.g. a tweet on Twitter)
     IMAGE = 1; // Post of type "image" (e.g. a photo on Flickr)
     VIDEO = 2; // Post of type "video" (e.g. a video on Youtube)
@@ -179,7 +179,7 @@ message Post {
    * If possible, choose the more specific type
    * (e.g. VIDEO over TEXT even if text is present in a video-post).
    */
-  Type post_type = 20;
+  PostType post_type = 20;
   /*
    * Any automatic filters applied to post?
    * (e.g. photo filters such as Amarao;
@@ -190,12 +190,12 @@ message Post {
    * Number of times this Post has been quoted by other users,
    * e.g. count of Quote-Tweets on Twitter.
    */
-  int64 quote_count = 22;
+  int64 post_quote_count = 22;
   /*
    * Number of times this Post has been shared
    * by other users, e.g. count of Retweets on Twitter.
    */
-  int64 share_count = 23;
+  int64 post_share_count = 23;
   /*
    * Type of input device used by the user to post,
    * for a list see Twitter, e.g. 'Web', 'IPhone',
@@ -214,10 +214,9 @@ message Post {
    * which can be optionally chosen by users on
    * some services (e.g. Flickr). For example:
    * All Rights Reserved = 0. Numbers can be
-   * oriented at Flickr's list of content licenses:
-   * https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
+   * oriented at [Flickr's](https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html) list of content licenses:
    */
-  int32 content_license = 26;
+  int32 post_content_license = 26;
 }
 
 /*
@@ -239,13 +238,13 @@ message Post {
  * or a reference to another reaction that was reacted
  * upon (referencedPostreaction)
  *
- * Example reaction_types:  
+ * Example reaction_types:
  *
- * - share  
- * - comment/reply  
- * - quote  
- * - like/star/highlight  
- * - emoji etc.  
+ * - share
+ * - comment/reply
+ * - quote
+ * - like/star/highlight
+ * - emoji etc.
  */
 message PostReaction {
   /*
