@@ -27,12 +27,6 @@ release:
 
 pages:
   stage: deploy
-  image: python:alpine
-  before_script:
-      - pip install mkdocs
-      # Add your custom theme if not inside a theme_dir
-      # (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes)
-      # - pip install mkdocs-material
   script:
     # create folder public for badges
     - mkdir .public
@@ -41,10 +35,6 @@ pages:
     - cp version.svg .public
     - cp pipeline.svg .public
     - mv .public public
-    # build docs
-    - mkdocs build
-    - mv site public
-    - mv public/site public/docs
   artifacts:
     name: pages
     paths:
