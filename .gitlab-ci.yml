@@ -35,7 +35,8 @@ rsync:
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-  - rsync -avu -zz --no-perms --omit-dir-times --del --relative --chown=www-data:www-data --chmod=D775,F664 /structure/protobuf/ "${STAGING_DESTINATION}"/structure/protobuf/
+  # dot (.) in source refers to the start of path creation on target
+  - rsync -avu -zz --no-perms --omit-dir-times --del --relative --chown=www-data:www-data --chmod=D775,F664 public/./structure/protobuf/ "${STAGING_DESTINATION}"
   only:
   - master
 
