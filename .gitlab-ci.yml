@@ -1,6 +1,8 @@
 
 variables:
-    GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_STRATEGY: recursive
+  # relative namespace of project
+  REL_NAMESPACE: "/structure/protobuf/"
 
 release:
   image: python:latest
@@ -17,8 +19,8 @@ release:
     - anybadge -l python --value="${python_version_var::-1}" --file=python-version.svg --color=yellow
     - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
     # create folder public for badges
-    - mkdir -p public/structure/protobuf/
-    - cp *.svg public/structure/protobuf/
+    - mkdir -p public/${REL_NAMESPACE}
+    - cp *.svg public/${REL_NAMESPACE}
   artifacts:
     name: pages
     paths:
@@ -35,8 +37,8 @@ rsync:
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-  # dot (.) in source refers to the start of path creation on target
-  - rsync -avu -zz --no-perms --omit-dir-times --del --relative --chown=www-data:www-data --chmod=D775,F664 public/./structure/protobuf/ "${STAGING_DESTINATION}"
+  - ssh "${STAGING_SERVER}" mkdir -p "${STAGING_PATH}${REL_NAMESPACE}"
+  - rsync -avu -zz --no-perms --omit-dir-times --del --chown=www-data:www-data --chmod=D775,F664 "public/${REL_NAMESPACE}" "${STAGING_SERVER}":"${STAGING_PATH}${REL_NAMESPACE}"
   only:
   - master
 
