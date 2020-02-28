@@ -38,7 +38,7 @@ rsync:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
   - ssh "${STAGING_SERVER}" mkdir -p "${STAGING_PATH}${REL_NAMESPACE}"
-  - rsync -avu -zz --no-perms --omit-dir-times --del --chown=www-data:www-data --chmod=D775,F664 "public/${REL_NAMESPACE}" "${STAGING_SERVER}":"${STAGING_PATH}${REL_NAMESPACE}"
+  - rsync -avu -zz --no-perms --omit-dir-times --del --chown=www-data:www-data --chmod=D775,F664 "public/${REL_NAMESPACE}" "${STAGING_SERVER}:${STAGING_PATH}${REL_NAMESPACE}"
   only:
   - master
 
