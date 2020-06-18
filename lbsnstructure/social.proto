@@ -3,31 +3,6 @@
  *
  * **Who?**
  *
- * The social facet describes an actor’s identity, encompassing their
- * wider affiliation with social groups or cultures. The underlying assumption
- * is that referent events involve or affect different groups of people
- * differently. In other words, whether someone feels affected or unaffected
- * by an event, is considered a participant, observer or witness or
- * takes a positive or negative stance towards an event depends,
- * to some degree, on the social background of this individual. This may
- * encompass complex aspects including political orientation, beliefs, values,
- * norms and preferences, which express a continuum of people’s relationships
- * towards an event that (often unconsciously) affect reactions.
- *
- * Because of the complexity involved, these social relationships between
- * reactions and events are not typically directly found in LBSM data,
- * but can be inferred based on (e.g.):  
- *
- * * user origin (USA, Canada or Australia),  
- * * language,  
- * * gender,  
- * * age,  
- * * occupation or  
- * * differentiation between local population and  
- *   visitors/tourists  
- * * affiliation with groups  
- * * etc.  
- *
  * Overview of LBSN Structures that are organized under the Social Facet:
  *
  * | Object | Description |

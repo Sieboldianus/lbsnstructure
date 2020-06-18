@@ -3,28 +3,13 @@
  *
  * **What?**
  *
- * The difference between the thematic and social facet is in the relation to the actor.
- * Thematic attributes include immediate situational aspects that affect reactions from an
- * actor in a particular situation (e.g. sentiments, feelings, emotions, but also co-occurring
- * aspects in the surrounding of an actor or any other attributes of the reaction environment).
- * Therefore, unlike social attributes, thematic attributes change frequently from one
- * reaction to another. Possible partitions include but are not limited to emotional states of
- * the actor (e.g. positive, neutral, negative), as inferred from emoticons or based on sentiment
- * analysis (Hauthal 2013), or the stance of different actors to events as inferred from
- * semantics such as titles, comments or descriptions etc. (Zeng et al. 2016). Keywords such
- * as hashtags, for example, may indicate what aspects of an event were perceived as being
- * of particular importance (Towne et al. 2016), or refer to individual event consequences or
- * actions people have undertaken or plan to undertake (Gao et al. 2014).
- *
- * Overview of LBSN Structures that are organized under the Topical Facet:
+ * Overview of LBSN Objects that are organized under the Topical Facet:
  *
  * | Object | Description |
  * | ----- | ----------- |
  * | [Post](#lbsn.structure.Post) | An single post on a location based social network (LBSN) providing original (new) content |
  * | [PostReaction](#lbsn.structure.PostReaction) | A reaction on a location based social network (LBSN) such as like, quote, share etc. |
  *
- * Note that these assignments are not clear-cut - e.g. they're aspects of a
- * Post or PostReactions that may as well belong to one of the other facets.
  */
 syntax = "proto3";
 

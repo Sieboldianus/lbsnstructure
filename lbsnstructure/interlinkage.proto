@@ -3,27 +3,6 @@
  *
  * **Interlinkage and the spread of information**
  *
- * Beyond direct references between different objects of the LBSN structure,
- * there exist other relationships, such as many-to-many relationships,
- * that are explicitly considered here.
- *
- * Relationships can link entities, e.g. between two different
- * Origins (e.g. different services) or between implicit social media
- * and external sources (explicit VGI, e.g. Wikipedia, OSM).
- *
- * A specific example for a relationship is the spread of information,
- * an important characteristic of LBSM that occurs when reactions become the
- * referent event for other reactions.
- *
- * The following naming conventions are used:
- *
- * - Names of relationships within a single Origin start with an underscore
- * ('_'), e.g. '_user_mentions_user'
- * - Names of Cross-Origin relationships start with two underscores
- *   ('__'), e.g. '__users_shareidentity', '__posts_shareidentity'
- * - Names of relationships that link social media and external
- *   sources start with three underscores ('___'),
- *   e.g. between a Social Media Network and OpenStreetMap
  */
 syntax = "proto3";
 

@@ -3,13 +3,6 @@
  *
  * **When?**
  *
- * Both time and space are referenced from many objects in LBSN such as the
- * location of a post, the date when a user joins a Social Network or when a
- * place is added to a map. Beyond these references, an explicit temporal objects
- * frequently found on LBSN Networks is the Event. Similar to objects of the
- * spatial facet, events may cover a range of granularities crossing different
- * hierarchical levels.
- *
  * Overview of LBSN Structures that are organized under the Temporal Facet:
  *
  * | Object | Description |

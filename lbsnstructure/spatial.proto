@@ -3,13 +3,6 @@
  *
  * **Where?**
  *
- * Both time and space are referenced from many objects in LBSN such as the
- * location of a post, the date when a user joins a Social Network or when a
- * place is added to a map. Beyond these references, independent spatial objects
- * of LBSN Networks are frequently found at different levels of granularity.
- * In the base LBSN Structure we've considered objects on 3 levels of spatial
- * granularity by default, Place, City and Country, which can be further
- * subdivided based on personal needs.
  *
  * Overview of LBSN Structures that are organized under the Spatial Facet:
  *
