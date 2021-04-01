@@ -1,7 +1,7 @@
 /*
  * Describes additional relationships of the LBSN Data Structure
  *
- * **[Interlinkage and the spread of information](https://lbsn.vgiscience.org/structure/facets/#interlinkage-and-the-spread-of-information)**
+ * **[Interlinkage and the spread of information](https://lbsn.vgiscience.org/structure/relationships/)**
  *
  */
 syntax = "proto3";
