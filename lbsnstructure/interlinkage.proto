@@ -1,7 +1,7 @@
 /*
  * Describes additional relationships of the LBSN Data Structure
  *
- * **[Interlinkage and the spread of information](https://lbsn.vgiscience.org/concept-structure/#interlinkage-and-the-spread-of-information)**
+ * **[Interlinkage and the spread of information](https://lbsn.vgiscience.org/structure/facets/#interlinkage-and-the-spread-of-information)**
  *
  */
 syntax = "proto3";
@@ -20,7 +20,7 @@ import "social.proto";
  */
 message RelationshipKey {
   CompositeKey relation_to = 1;   // Relation from reference
-  CompositeKey relation_from = 2; // Relation ro reference
+  CompositeKey relation_from = 2; // Relation to reference
 }
 
 /*

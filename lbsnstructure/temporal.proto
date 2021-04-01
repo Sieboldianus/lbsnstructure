@@ -1,7 +1,7 @@
 /*
  * Temporal Facet of the Common LBSN Data Structure
  *
- * **[When?](https://lbsn.vgiscience.org/concept-structure/#temporal-facet)**
+ * **[When?](https://lbsn.vgiscience.org/structure/facets/#temporal-facet)**
  *
  * Overview of LBSN Structures that are organized under the Temporal Facet:
  *
@@ -78,8 +78,7 @@ message Event {
    */
   CompositeKey user_pkey = 12;
   /*
-   * A link provided by users for this place (e.g.
-   * webpage for restaurant, park-management etc.)
+   * A description of the event.
    */
   string event_description = 13;
   /*
