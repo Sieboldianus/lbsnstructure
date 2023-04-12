@@ -18,7 +18,7 @@ syntax = "proto3";
 package lbsn.structure;
 
 // import structure dependencies
-import "social.proto";
+import "lbsnstructure/social.proto";
 
 
 /*
@@ -45,7 +45,7 @@ message Place {
    */
   int64 post_count = 4;
   /*
-   * URL to the public place-page  representation on the respective LBSN
+   * URL to the public place-page representation on the respective LBSN
    */
   string url = 5;
   /*
@@ -53,11 +53,11 @@ message Place {
    */
   string geom_center = 6;
   /*
-   * WKT Polygon (boundary of the city)
+   * WKT Polygon (boundary of the place)
    */
   string geom_area = 7;
   /*
-   * Reference to the city this city belongs to.
+   * Reference to the city this place belongs to.
    */
   CompositeKey city_pkey = 8;
   /*
