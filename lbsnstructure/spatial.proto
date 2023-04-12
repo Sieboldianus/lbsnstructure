@@ -18,7 +18,7 @@ syntax = "proto3";
 package lbsn.structure;
 
 // import structure dependencies
-import "lbsnstructure/social.proto";
+import "social.proto";
 
 
 /*
