@@ -33,6 +33,9 @@ import "google/protobuf/timestamp.proto";
  * people (the social part) around some common interest
  * (e.g. Flickr or Instagram for photography,
  * Twitter for opinion formation and exchange of political perspectives).
+ *
+ * While OriginIDs are entirely open, we added a list of predefined common
+ * Networks.
  */
 message Origin {
   /*
@@ -45,6 +48,25 @@ message Origin {
     TWITTER = 3;
     FACEBOOK = 4;
     FOURSQUARE = 5;
+    WIKIDATA = 6;
+    WIKIPEDIA = 7;
+    REDDIT = 8;
+    GEOGRAPH = 9;
+    GOOGLEPLACEPHOTO = 10;
+    PINTEREST = 11;
+    MAPILLARY = 12;
+    SNAPCHAT = 13;
+    POKEMONGO = 14;
+    WIKIMEDIACOMMONS = 15;
+    WIKIMAPIA = 16;
+    AIRBNB = 17;
+    PORTALNINANTIC = 18;
+    TIKTOK = 19;
+    TELEGRAM = 20;
+    GAB = 21;
+    IBIRD = 22;
+    INATURALIST = 23;
+    ISPOTNATURE = 24;
   }
   /*
    * A unique Origin ID as a reference for the LBSN
