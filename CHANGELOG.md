@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.0 (2023-04-12)
+### Documentation
+* Merge changelog files ([`d956e39`](https://github.com/Sieboldianus/lbsnstructure/commit/d956e39fdb07cf9cf6b75cb47a412b50ba91b90a))
+
 ## v1.4.0 (2023-04-12)
 ### Feature
 * Add additional example Origin Networks ([`ce6920c`](https://github.com/Sieboldianus/lbsnstructure/commit/ce6920c416005ff998f0e9e1e77abc58b3c76063))
