@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.1 (2023-04-12)
+### Fix
+* Semantic release ([`a359ab7`](https://github.com/Sieboldianus/lbsnstructure/commit/a359ab782ff12a9ca024f0f43ddddd0e57fed463))
+
 ## v2.0.0 (2023-04-12)
 ### Documentation
 * Merge changelog files ([`d956e39`](https://github.com/Sieboldianus/lbsnstructure/commit/d956e39fdb07cf9cf6b75cb47a412b50ba91b90a))
