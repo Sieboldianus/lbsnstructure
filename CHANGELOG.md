@@ -15,3 +15,13 @@
 * Fix links to lbsn docs ([`124faf5`](https://github.com/Sieboldianus/lbsnstructure/commit/124faf534f74caf0d333a3e9584e56f0751ab7e9))
 * Move docs to external repo ([`0f2fa8c`](https://github.com/Sieboldianus/lbsnstructure/commit/0f2fa8c9ee02ed2a05d5ef96c38e86337554f696))
 * Add comments and split proto into 4 facets ([`819f388`](https://github.com/Sieboldianus/lbsnstructure/commit/819f388187b7bbd40678cd951ed94c3c3feb6994))
+
+## v0.1.61
+### Feature
+* Extended structure for additional place attributes
+
+## v0.1.5
+### Feature
+* Initial Structure
+* Python Compilation and Example Jupyter Notebook
+* Readme: Overview & Motivation
