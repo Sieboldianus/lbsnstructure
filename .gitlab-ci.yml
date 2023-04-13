@@ -19,8 +19,8 @@ pages:
     - anybadge -l python --value="${python_version_var::-1}" --file=python-version.svg --color=yellow
     - anybadge -l pipeline --value=passing --file=pipeline.svg passing=green failing=red
     # create folder public for badges
-    - mkdir -p public/${REL_NAMESPACE}
-    - cp *.svg public/${REL_NAMESPACE}
+    - mkdir -p public/
+    - cp *.svg public/
   artifacts:
     name: pages
     paths:
