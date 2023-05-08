@@ -18,7 +18,7 @@ package lbsn.structure;
 // import structure dependencies
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
-import "social.proto";
+import "lbsnstructure/social.proto";
 
 
 
