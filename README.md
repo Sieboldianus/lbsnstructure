@@ -4,7 +4,9 @@
 
 A common language independent and cross-network social-media datascheme.
 
-**Important:** In order to encapsulate and share code across different package managers (pypi, composer), we make use of _git_ _submodules_. To clone this super-repository, including all its example-folders, use:
+**Important:** In order to encapsulate and share code across different package managers 
+(pypi, composer), we make use of _git_ _submodules_. To clone this super-repository, 
+including all its example-folders, use:
 
 ```bash
 git clone --recursive
@@ -12,32 +14,64 @@ git clone --recursive
 
 ## Description
 
-This is the first version of a common, standardized conceptual data model for analyzing, comparing and relating information of different location based social networks (LBSN). With the structure, we focus on three important directions that are of importance to the whole Priority Program:
+This is the first version of a common, standardized conceptual data model for analyzing, 
+comparing and relating information of different location based social networks (LBSN). 
+With the structure, we focus on three important directions that are of importance 
+to the whole Priority Program:
 
 - Adaption: Case Studies for application of this structure and exemplary visualizations
-- Guides: Theoretic description and guidelines of concept and technical implementation
-- Tools: Developing example base functions and algorithms for information retrieval and inter-linkage of data entities
 
-We decided to describe our common lbsn structure with the platform and language independent [Proto Buffers](https://developers.google.com/protocol-buffers/). [These files](https://gitlab.vgiscience.de/lbsn/concept) can be used to compile and implement our proposed structure in any language such as Python, Java or C++.
+- Guides: Theoretic description and guidelines of concept and technical implementation
+
+- Tools: Developing example base functions and algorithms for information retrieval 
+  and inter-linkage of data entities
+
+We decided to describe our common lbsn structure with the platform and language independent 
+[Proto Buffers](https://developers.google.com/protocol-buffers/). [These files](https://gitlab.vgiscience.de/lbsn/concept) 
+can be used to compile and implement our proposed structure in any language such 
+as Python, Java or C++.
 
 ## Docs
 
-The full documentation is available at [lbsn.vgiscience.org/structure/protobuf/docs/](https://lbsn.vgiscience.org/structure/protobuf/docs/).
+The full documentation is available at
+[lbsn.vgiscience.org/structure/protobuf/docs/](https://lbsn.vgiscience.org/structure/protobuf/docs/).
 
 ## Quick Start
 
-To compile ProtoBuffers structure in your language, get the [current release for your OS](https://developers.google.com/protocol-buffers/docs/downloads), clone this repository (or download [Structure.proto](lbsnstructure/Structure.proto)) and execute (Python example):
+```
+apt install -y protobuf-compiler
+protoc --version # Ensure compiler version is >= 3.19.0.
+```
+
+Optionally, [install binary](https://grpc.io/docs/protoc-installation/):
+```
+PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+curl -LO $PB_REL/download/v3.19.0/protoc-3.19.0-linux-x86_64.zip
+unzip protoc-3.19.0-linux-x86_64.zip -d $HOME/.local
+export PATH="$PATH:$HOME/.local/bin"
+```
+
+To compile ProtoBuffers structure in your language, get the 
+[current release for your OS](https://developers.google.com/protocol-buffers/docs/downloads), 
+clone this repository (or download [Structure.proto](lbsnstructure/Structure.proto)).
+
+Python example:
 
 ```bash
-protoc --python_out=examples/python lbsnstructure/lbsnstructure.proto
-protoc --python_out=examples/python google/protobuf/timestamp.proto
-protoc --python_out=examples/python google/protobuf/duration.proto
+protoc --python_out=examples/python lbsnstructure/interlinkage.proto \
+    && protoc --python_out=examples/python lbsnstructure/social.proto \
+    && protoc --python_out=examples/python lbsnstructure/spatial.proto \
+    && protoc --python_out=examples/python lbsnstructure/temporal.proto \
+    && protoc --python_out=examples/python lbsnstructure/topical.proto \
+    && protoc --python_out=examples/python google/protobuf/timestamp.proto \
+    && protoc --python_out=examples/python google/protobuf/duration.proto
 ```
 
 Replace `--python` with your language of choice, e.g. for php:  
 
 ```bash
 protoc --php_out=examples/php/ lbsnstructure/lbsnstructure.proto
+...
 protoc --php_out=examples/php/ google/protobuf/timestamp.proto
 protoc --php_out=examples/php/ google/protobuf/duration.proto
 ```
