@@ -2,6 +2,18 @@
 
 <!--next-version-placeholder-->
 
+## v3.0.0 (2023-05-08)
+### Fix
+* Add lbsnstructure namespace ([`a8105c9`](https://github.com/Sieboldianus/lbsnstructure/commit/a8105c990e9007fb8737cad261e3459df3eb24ad))
+* Import for protoc_gen_doc ([`9fc01b3`](https://github.com/Sieboldianus/lbsnstructure/commit/9fc01b341e0a0f480522775f801be8544799f03d))
+
+### Breaking
+* This update requires all import to be updated from ([`a8105c9`](https://github.com/Sieboldianus/lbsnstructure/commit/a8105c990e9007fb8737cad261e3459df3eb24ad))
+
+### Documentation
+* Update php instructions in Readme ([`71cc3cd`](https://github.com/Sieboldianus/lbsnstructure/commit/71cc3cd3931fe170ae171d14f6ba2018241560dd))
+* Update commands to relfect new namespace; add linebreaks ([`ec4652c`](https://github.com/Sieboldianus/lbsnstructure/commit/ec4652cd35a5bedfa49b2f8df2a1f54794fd328c))
+
 ## v2.0.5 (2023-04-12)
 
 
