@@ -14,17 +14,9 @@
 * Update php instructions in Readme ([`71cc3cd`](https://github.com/Sieboldianus/lbsnstructure/commit/71cc3cd3931fe170ae171d14f6ba2018241560dd))
 * Update commands to relfect new namespace; add linebreaks ([`ec4652c`](https://github.com/Sieboldianus/lbsnstructure/commit/ec4652cd35a5bedfa49b2f8df2a1f54794fd328c))
 
-## v2.0.5 (2023-04-12)
+## v2.0.2 - v2.0.5(2023-04-12)
 
-
-## v2.0.4 (2023-04-12)
-
-
-## v2.0.3 (2023-04-12)
-
-
-## v2.0.2 (2023-04-12)
-
+- CI releases
 
 ## v2.0.1 (2023-04-12)
 ### Fix
