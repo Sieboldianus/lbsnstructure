@@ -70,10 +70,13 @@ protoc --python_out=examples/python lbsnstructure/interlinkage.proto \
 Replace `--python` with your language of choice, e.g. for php:  
 
 ```bash
-protoc --php_out=examples/php/ lbsnstructure/lbsnstructure.proto
-...
-protoc --php_out=examples/php/ google/protobuf/timestamp.proto
-protoc --php_out=examples/php/ google/protobuf/duration.proto
+protoc --php_out=examples/php/ lbsnstructure/interlinkage.proto \
+    && protoc --php_out=examples/php lbsnstructure/social.proto \
+    && protoc --php_out=examples/php lbsnstructure/spatial.proto \
+    && protoc --php_out=examples/php lbsnstructure/temporal.proto \
+    && protoc --php_out=examples/php lbsnstructure/topical.proto \
+    && protoc --php_out=examples/php/ google/protobuf/timestamp.proto \
+    && protoc --php_out=examples/php/ google/protobuf/duration.proto
 ```
 
 If successful, you will see a file generated in output directory in your language, e.g. `lbsnstructure/lbsnstructure_pb2.py` ([Note](https://developers.google.com/protocol-buffers/docs/reference/python-generated) that currently both proto2 and proto3 append "_pb2.py" to generated filenames). 
