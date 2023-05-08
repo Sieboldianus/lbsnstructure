@@ -20,8 +20,6 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "lbsnstructure/social.proto";
 
-
-
 /*
  * An event with a representation on LBSN.
  *
