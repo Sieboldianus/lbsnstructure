@@ -8,7 +8,19 @@
 * Import for protoc_gen_doc ([`9fc01b3`](https://github.com/Sieboldianus/lbsnstructure/commit/9fc01b341e0a0f480522775f801be8544799f03d))
 
 ### Breaking
-* This update requires all import to be updated from ([`a8105c9`](https://github.com/Sieboldianus/lbsnstructure/commit/a8105c990e9007fb8737cad261e3459df3eb24ad))
+* This update requires all import to be updated ([`a8105c9`](https://github.com/Sieboldianus/lbsnstructure/commit/a8105c990e9007fb8737cad261e3459df3eb24ad))
+
+e.g. for Python:
+
+from
+```
+from lbsnstructure import lbsnstructure_pb2 as lbsn
+```
+
+to
+```
+import lbsnstructure as lbsn
+```
 
 ### Documentation
 * Update php instructions in Readme ([`71cc3cd`](https://github.com/Sieboldianus/lbsnstructure/commit/71cc3cd3931fe170ae171d14f6ba2018241560dd))
