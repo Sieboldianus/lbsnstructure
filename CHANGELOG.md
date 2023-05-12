@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v3.1.0 (2023-05-12)
+### Feature
+* Add Post.post_topic (e.g. posts assigned to photo groups on Flickr or submissions on Reddit assigned to subreddits ([`902241f`](https://github.com/Sieboldianus/lbsnstructure/commit/902241ff7f0b80b9f2bc2875fd36387c918f5c03))
+* Add Post.PostType.LINK (e.g. a Link Share on Reddit) ([`57b90c6`](https://github.com/Sieboldianus/lbsnstructure/commit/57b90c69faa484d6440607c0a15e36f1b1f4c5f9))
+
+### Documentation
+* Clarify filter attribute for topical.Post ([`a751676`](https://github.com/Sieboldianus/lbsnstructure/commit/a75167672a26afc5681e423c3340230139b0f530))
+* Update sample code in Readme.md ([`a236cd7`](https://github.com/Sieboldianus/lbsnstructure/commit/a236cd7f299330dbe50dd3a51bf305072808d850))
+
 ## v3.0.0 (2023-05-08)
 ### Fix
 * Add lbsnstructure namespace ([`a8105c9`](https://github.com/Sieboldianus/lbsnstructure/commit/a8105c990e9007fb8737cad261e3459df3eb24ad))
