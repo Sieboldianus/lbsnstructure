@@ -86,7 +86,7 @@ This file can be imported to your tool.
 E.g. for python:
 
 ```python
-from lbsnstructure.lbsnstructure_pb2.py import Origin, CompositeKey, Country
+import lbsnstructure as lbsn
 ```
 
 Have a look at the [python compiled example repository](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python) and the [Jupyter Notebook](https://gitlab.vgiscience.de/lbsn/lbsnstructure-python/blob/master/StructureTest.ipynb) for a brief guide on using the structure in Python.
