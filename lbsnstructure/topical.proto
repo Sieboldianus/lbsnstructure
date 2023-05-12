@@ -167,9 +167,10 @@ message Post {
    */
   PostType post_type = 20;
   /*
-   * Any automatic filters applied to post?
-   * (e.g. photo filters such as Amarao;
-   * Automatic Translations of Text).
+   * Any filters/labels applied to post?
+   * (e.g. Instagram photo filters such as Amarao;
+   * Automatic translations of text; or 
+   * the "flair" of Reddit posts).
    */
   string post_filter = 21;
   /*
