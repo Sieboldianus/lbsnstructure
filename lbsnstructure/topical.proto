@@ -157,7 +157,8 @@ message Post {
     TEXT = 0;  // Default post type is text (e.g. a tweet on Twitter)
     IMAGE = 1; // Post of type "image" (e.g. a photo on Flickr)
     VIDEO = 2; // Post of type "video" (e.g. a video on Youtube)
-    OTHER = 3; // Post of specific type not yet added to the specification
+    LINK = 3; // Post of type "link" (e.g. a link share on Reddit)
+    OTHER = 4; // Post of specific type not yet added to the specification
   }
   /*
    * Type of post, e.g. text, image, video or other.
