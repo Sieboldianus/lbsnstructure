@@ -59,12 +59,12 @@ Python example:
 
 ```bash
 protoc --python_out=examples/python lbsnstructure/interlinkage.proto \
-    && protoc --python_out=examples/python lbsnstructure/social.proto \
-    && protoc --python_out=examples/python lbsnstructure/spatial.proto \
-    && protoc --python_out=examples/python lbsnstructure/temporal.proto \
-    && protoc --python_out=examples/python lbsnstructure/topical.proto \
-    && protoc --python_out=examples/python google/protobuf/timestamp.proto \
-    && protoc --python_out=examples/python google/protobuf/duration.proto
+    && protoc --python_out=examples/python/src/ lbsnstructure/social.proto \
+    && protoc --python_out=examples/python/src/ lbsnstructure/spatial.proto \
+    && protoc --python_out=examples/python/src/ lbsnstructure/temporal.proto \
+    && protoc --python_out=examples/python/src/ lbsnstructure/topical.proto \
+    && protoc --python_out=examples/python/src/ google/protobuf/timestamp.proto \
+    && protoc --python_out=examples/python/src/ google/protobuf/duration.proto
 ```
 
 Replace `--python` with your language of choice, e.g. for php:  
@@ -77,6 +77,20 @@ protoc --php_out=examples/php/ lbsnstructure/interlinkage.proto \
     && protoc --php_out=examples/php lbsnstructure/topical.proto \
     && protoc --php_out=examples/php/ google/protobuf/timestamp.proto \
     && protoc --php_out=examples/php/ google/protobuf/duration.proto
+```
+
+Optionally, install `mypy-protobuf`, to generate type stubs for proto files:
+```bash
+python3 -m venv mypy-proto_env
+source ./mypy-proto_env/bin/activate
+pip install mypy-protobuf
+protoc --python_out=examples/python lbsnstructure/interlinkage.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/social.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/spatial.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/temporal.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/topical.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ google/protobuf/timestamp.proto \
+    && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ google/protobuf/duration.proto
 ```
 
 If successful, you will see a file generated in output directory in your language, e.g. `lbsnstructure/lbsnstructure_pb2.py` ([Note](https://developers.google.com/protocol-buffers/docs/reference/python-generated) that currently both proto2 and proto3 append "_pb2.py" to generated filenames). 
