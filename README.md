@@ -12,6 +12,9 @@ including all its example-folders, use:
 git clone --recursive
 ```
 
+On Github, the python compiled repository can be found here:
+https://github.com/Sieboldianus/lbsnstructure-python
+
 ## Description
 
 This is the first version of a common, standardized conceptual data model for analyzing, 
