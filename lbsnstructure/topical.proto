@@ -204,13 +204,13 @@ message Post {
    * oriented at [Flickr's](https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html) list of content licenses:
    */
   int32 post_content_license = 26;
-  /* Whether the post is assigned to any explicit topics.
+  /* Whether the post is assigned to any explicit topic groups.
    * This could be a Reddit submission that belongs
-   * to a Subreddit (= the post_topic);
+   * to a Subreddit (= the topic group);
    * or a Flickr image posted to a number of photo groups. A Post
-   * can belong to multiple topics.
+   * can belong to multiple topics (e.g. a "cross-post" on Reddit).
    */
-   repeated string post_topic = 27;
+   repeated string topic_group = 27;
   /*
    * Number of times this Post has been downvoted
    * by other users (HackerNews, Reddit)
