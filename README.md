@@ -87,7 +87,7 @@ Optionally, install `mypy-protobuf`, to generate type stubs for proto files:
 python3 -m venv mypy-proto_env
 source ./mypy-proto_env/bin/activate
 pip install mypy-protobuf
-protoc --python_out=examples/python lbsnstructure/interlinkage.proto \
+protoc --python_out=examples/python/src/ lbsnstructure/interlinkage.proto \
     && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/social.proto \
     && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/spatial.proto \
     && protoc --python_out=examples/python/src/ --mypy_out=examples/python/src/ lbsnstructure/temporal.proto \
