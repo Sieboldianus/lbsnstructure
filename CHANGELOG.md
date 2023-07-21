@@ -2,6 +2,18 @@
 
 <!--next-version-placeholder-->
 
+## v3.2.0 (2023-07-21)
+### Feature
+* Correct namin of eBird Origin, add Tripadvisor origin ([`4decc33`](https://github.com/Sieboldianus/lbsnstructure/commit/4decc3391924bf6bdb17ae3932c3849c74ba7c13))
+
+### Fix
+* Improve raming for topic_group attribute ([`462500c`](https://github.com/Sieboldianus/lbsnstructure/commit/462500cfdcddd0ecbc1a62be7b2e85107aedd3cc))
+
+### Documentation
+* Fix sample code ([`8fe9a1f`](https://github.com/Sieboldianus/lbsnstructure/commit/8fe9a1f259c69b1330b4cd6aa26ccf3d42e7d1ff))
+* Add reference to Github ([`84b47cd`](https://github.com/Sieboldianus/lbsnstructure/commit/84b47cd24965350a1492b7727706276a910858ae))
+* Update instructions to generate pyi py.typed files alongside ([`113895c`](https://github.com/Sieboldianus/lbsnstructure/commit/113895c5525d6c8d664317a5f2449577981ae29a))
+
 ## v3.1.0 (2023-05-12)
 ### Feature
 * Add Post.post_topic (e.g. posts assigned to photo groups on Flickr or submissions on Reddit assigned to subreddits ([`902241f`](https://github.com/Sieboldianus/lbsnstructure/commit/902241ff7f0b80b9f2bc2875fd36387c918f5c03))
