@@ -64,9 +64,10 @@ message Origin {
     TIKTOK = 19;
     TELEGRAM = 20;
     GAB = 21;
-    IBIRD = 22;
+    EBIRD = 22;
     INATURALIST = 23;
     ISPOTNATURE = 24;
+    TRIPADVISOR = 25;
   }
   /*
    * A unique Origin ID as a reference for the LBSN
